@@ -47,16 +47,25 @@
     "typescript": "^5.2.2"
   },
   "keywords": [
-    "pond-cleanup",
-    "lake-weed-removal",
-    "aquatic-vegetation-control",
+    "lake-management",
+    "lake-maintenance",
+    "aquatic-management",
+    "lake-restoration",
+    "water-management",
+    "lake-weed-control",
+    "lake-cleanup",
+    "aquatic-vegetation-management",
+    "lake-dredging",
+    "water-quality-management",
+    "lake-services",
+    "aquatic-services",
     "truxor",
-    "utah-pond-services",
+    "utah-lake-services",
     "seo-optimized",
     "nextjs",
     "react"
   ],
-  "author": "Pond Cleanup Pro",
+  "author": "Water Raptor",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
