@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['pondcleanup.com'],
+    domains: ['waterraptor.com'],
     formats: ['image/webp', 'image/avif'],
   },
   async headers() {

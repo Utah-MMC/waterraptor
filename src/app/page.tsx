@@ -26,9 +26,9 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 // Enhanced video player for equipment demonstrations
 const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false });
 
-// --- Editable content for Pond Cleanup business ---
+// --- Editable content for Water Raptor business ---
 const BRAND = {
-  name: "PondCleanup.com",
+  name: "WaterRaptor.com",
   tagline: "Professional pond cleanup and lake weed removal services",
   heroVideo: "/videos/equipment-3d-render.mp4", // Professional equipment demonstration
   poster: "/images/New Images/Truxor_Cutting-Collecting_1_web.jpg",
@@ -152,7 +152,7 @@ export default function PondCleanupLanding() {
     "@type": "LocalBusiness",
     "name": BRAND.name,
     "description": `${BRAND.name} - ${BRAND.tagline}`,
-    "url": "https://pondcleanup.com",
+    "url": "https://waterraptor.com",
     "telephone": "+1-801-555-0123",
     "address": {
       "@type": "PostalAddress",
@@ -1219,7 +1219,7 @@ export default function PondCleanupLanding() {
                     </div>
                     <div>
                       <div className="font-semibold text-sm">Email</div>
-                      <div className="text-xs text-muted-foreground">info@pondcleanup.com</div>
+                      <div className="text-xs text-muted-foreground">info@waterraptor.com</div>
                     </div>
                   </div>
                   
@@ -1451,7 +1451,7 @@ export default function PondCleanupLanding() {
           <div>
             <div className="font-medium">Contact</div>
             <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li>Email: info@pondcleanup.com</li>
+              <li>Email: info@waterraptor.com</li>
               <li>Phone: +1 (801) 555-0123</li>
               <li>Service Area: Utah Statewide</li>
             </ul>

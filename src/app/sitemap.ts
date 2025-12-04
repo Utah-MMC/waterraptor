@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { CITIES_DATA } from './cities/cities-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pondcleanup.com'; // Replace with your actual domain
+  const baseUrl = 'https://waterraptor.com';
   
   // Base pages
   const basePages = [

@@ -5,16 +5,16 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pondcleanup.com'),
-  title: 'PondCleanup.com - Professional Pond & Lake Cleanup Services',
+  metadataBase: new URL('https://waterraptor.com'),
+  title: 'WaterRaptor.com - Professional Pond & Lake Cleanup Services',
   description: 'Professional pond cleanup and lake weed removal services using advanced equipment. Serving Utah with reliable aquatic vegetation control.',
   keywords: 'pond cleanup, lake cleanup, aquatic vegetation removal, pond weed removal, lake weed control, aquatic weed removal, Utah pond services',
-  authors: [{ name: 'Pond Cleanup Pro' }],
+  authors: [{ name: 'Water Raptor' }],
   openGraph: {
     title: 'Professional Pond Cleanup Services | Lake Weed Removal',
           description: 'Expert pond cleanup and lake weed removal services using professional equipment. Serving Utah with reliable aquatic vegetation control.',
     type: 'website',
-    url: 'https://pondcleanup.com',
+    url: 'https://waterraptor.com',
     images: ['/images/image004.jpg'],
   },
   twitter: {

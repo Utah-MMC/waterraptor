@@ -324,9 +324,9 @@ window.addEventListener('load', () => {
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Pond Cleanup Pro",
+    "name": "Water Raptor",
     "description": "Professional pond cleanup and lake weed removal services using Truxor T50 equipment",
-    "url": "https://pondcleanup.com",
+    "url": "https://waterraptor.com",
     "telephone": "+1-801-555-0123",
     "address": {
         "@type": "PostalAddress",
@@ -351,7 +351,7 @@ const structuredData = {
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
-                    "name": "Pond Cleanup"
+                    "name": "Water Raptor"
                 }
             },
             {
@@ -381,7 +381,7 @@ document.head.appendChild(script)
 /*=============== PERFORMANCE OPTIMIZATION ===============*/
 // Preload critical resources
 const criticalResources = [
-    'images/hero-pond-cleanup.jpg',
+    'images/hero-water-raptor.jpg',
     'images/truxor-t50.jpg'
 ]
 
@@ -418,7 +418,7 @@ focusableElements.forEach(element => {
     })
 })
 
-console.log('Pond Cleanup website loaded successfully! 🚀')
+console.log('Water Raptor website loaded successfully! 🚀')
 
 /*=============== ENHANCED CONTACT FORM FUNCTIONALITY ===============*/
 
@@ -753,7 +753,7 @@ function updateReviewSection() {
 
 function getServiceDisplayName(value) {
     const serviceMap = {
-        'pond-cleanup': 'Pond Cleanup',
+        'water-raptor': 'Water Raptor',
         'lake-weed-removal': 'Lake Weed Removal',
         'aquatic-vegetation-control': 'Aquatic Vegetation Control',
         'pond-maintenance': 'Pond Maintenance',

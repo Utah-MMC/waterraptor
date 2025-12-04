@@ -1,5 +1,5 @@
 {
-  "name": "pondcleanup",
+  "name": "waterraptor",
   "version": "1.0.0",
   "description": "Professional pond cleanup and lake weed removal services website",
   "private": true,
@@ -63,7 +63,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/utahmmc-jlafaver/waterraptor.git"
+    "url": "https://github.com/Utah-MMC/waterraptor.git"
   },
-  "homepage": "https://pondcleanup.com"
+  "homepage": "https://waterraptor.com"
 }

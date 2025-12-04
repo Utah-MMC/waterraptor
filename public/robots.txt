@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location (update with your actual domain)
-Sitemap: https://pondcleanup.com/sitemap.xml
+Sitemap: https://waterraptor.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
