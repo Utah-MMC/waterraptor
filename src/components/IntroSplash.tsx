@@ -8,7 +8,7 @@ type Props = {
 };
 
 const VIDEOS = [
-  { src: "/intro/raptor-1_prob4.mp4", id: "raptor-1_prob4" },
+  { src: "/intro/raptor-1.mp4", id: "raptor-1" },
 ];
 
 export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
@@ -16,7 +16,7 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
   const safetyTimeoutRef = useRef<number | null>(null);
   const [canShow, setCanShow] = useState(false);
   const [videoError, setVideoError] = useState<string | null>(null);
-  const [isMuted, setIsMuted] = useState(false); // Start with audio enabled
+  const [isMuted, setIsMuted] = useState(true); // Start muted for autoplay reliability
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const totalDurationRef = useRef(0);
@@ -24,6 +24,38 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
   const hasTriggeredTransitionRef = useRef(false);
 
   useEffect(() => {
+    const safeSessionGet = (key: string) => {
+      try {
+        return sessionStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    };
+
+    const safeSessionSet = (key: string, value: string) => {
+      try {
+        sessionStorage.setItem(key, value);
+      } catch {
+        // ignore
+      }
+    };
+
+    const safeSessionRemove = (key: string) => {
+      try {
+        sessionStorage.removeItem(key);
+      } catch {
+        // ignore
+      }
+    };
+
+    const safeLocalGet = (key: string) => {
+      try {
+        return localStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    };
+
     // Check for test mode via URL parameter (e.g., ?showIntro=true)
     const urlParams = new URLSearchParams(window.location.search);
     const forceShow = urlParams.get("showIntro") === "true";
@@ -31,13 +63,13 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
     // In development, check localStorage flag or allow showing on first load
     const devForceShow = 
       typeof window !== "undefined" && 
-      (localStorage.getItem("forceIntro") === "true" || 
-       (process.env.NODE_ENV === "development" && !sessionStorage.getItem("intro_seen")));
+      (safeLocalGet("forceIntro") === "true" || 
+       (process.env.NODE_ENV === "development" && !safeSessionGet("intro_seen")));
     
     if (forceShow || devForceShow) {
       // Clear session storage for testing
       if (forceShow) {
-        sessionStorage.removeItem("intro_seen");
+        safeSessionRemove("intro_seen");
         console.log("✅ Intro forced to show via ?showIntro=true");
       } else {
         console.log("✅ Intro showing (development mode)");
@@ -51,7 +83,7 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Only show once per session (unless forced)
-    const seen = sessionStorage.getItem("intro_seen") === "1";
+    const seen = safeSessionGet("intro_seen") === "1";
 
     if (reduceMotion && !forceShow && !devForceShow) {
       console.log("Intro skipped: prefers-reduced-motion");
@@ -71,7 +103,7 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
 
     setCanShow(true);
     if (!forceShow && !devForceShow) {
-      sessionStorage.setItem("intro_seen", "1");
+      safeSessionSet("intro_seen", "1");
     }
 
     // Set safety timeout (will be cleared if video ends naturally)
@@ -117,28 +149,17 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
       v.src = VIDEOS[currentVideoIndex].src;
       v.load();
       
-      // Try to play with audio immediately (no muted)
-      v.muted = false;
-      setIsMuted(false);
-      
-      // Attempt to play with sound - browsers may block this, but we try anyway
+      // Start muted to satisfy autoplay policies; user can unmute via control.
+      v.muted = true;
+      setIsMuted(true);
+
       v.play()
         .then(() => {
           console.log(`Playing video ${currentVideoIndex + 1}/${VIDEOS.length}: ${VIDEOS[currentVideoIndex].id}`);
         })
         .catch((err) => {
-          console.warn("Autoplay with audio blocked, trying muted:", err);
-          v.muted = true;
-          return v.play();
-        })
-        .then(() => {
-          if (v && v.muted) {
-            console.log("Video playing muted (browser autoplay policy) - click speaker to unmute");
-          }
-        })
-        .catch((err) => {
-          console.error("Video play failed completely:", err);
-          setVideoError("Video failed to play. Click to skip.");
+          console.error("Video autoplay failed:", err);
+          setVideoError("Tap to play the intro, or skip.");
         });
     }
 
@@ -166,9 +187,25 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
     }
   };
 
+  const tryPlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    setVideoError(null);
+    if (!v.src) {
+      v.src = VIDEOS[currentVideoIndex]?.src ?? VIDEOS[0].src;
+      v.load();
+    }
+
+    v.play().catch((err) => {
+      console.error("Video play failed:", err);
+      setVideoError("Video failed to play. You can skip.");
+    });
+  };
+
   const handleVideoError = () => {
     console.error("Intro video load error");
-    setVideoError("Video failed to load. Click to skip.");
+    setVideoError("Video failed to load. Tap to retry, or skip.");
     if (safetyTimeoutRef.current) {
       clearTimeout(safetyTimeoutRef.current);
     }
@@ -260,8 +297,22 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
     <div
       className="fixed inset-0 z-[9999] bg-black cursor-pointer"
       aria-label="Intro animation"
-      onClick={onDone}
-      onTouchStart={onDone}
+      onClick={() => {
+        const v = videoRef.current;
+        if (videoError || (v && v.paused)) {
+          tryPlay();
+          return;
+        }
+        onDone();
+      }}
+      onTouchStart={() => {
+        const v = videoRef.current;
+        if (videoError || (v && v.paused)) {
+          tryPlay();
+          return;
+        }
+        onDone();
+      }}
     >
       <video
         ref={videoRef}
@@ -273,8 +324,12 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
         preload="auto"
         onEnded={handleVideoEnded}
         onError={handleVideoError}
-        onClick={onDone}
-        onTouchStart={onDone}
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
+        onTouchStart={(event) => {
+          event.stopPropagation();
+        }}
         onLoadedMetadata={() => {
           const v = videoRef.current;
           if (v && v.duration > 0) {
@@ -323,12 +378,26 @@ export default function IntroSplash({ onDone, durationMs = 30000 }: Props) {
         <div className="absolute inset-0 flex items-center justify-center bg-black/80">
           <div className="text-center text-white">
             <p className="mb-4">{videoError}</p>
-            <button
-              className="rounded-full bg-white/20 px-6 py-2 text-white hover:bg-white/30"
-              onClick={onDone}
-            >
-              Continue
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <button
+                className="rounded-full bg-white/20 px-6 py-2 text-white hover:bg-white/30"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  tryPlay();
+                }}
+              >
+                Try play
+              </button>
+              <button
+                className="rounded-full bg-white/10 px-6 py-2 text-white hover:bg-white/20"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onDone();
+                }}
+              >
+                Skip
+              </button>
+            </div>
           </div>
         </div>
       )}
