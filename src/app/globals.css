@@ -92,11 +92,11 @@
     background-image:
       radial-gradient(1200px 800px at 15% 10%, rgba(255, 255, 255, 0.06), transparent 60%),
       radial-gradient(1200px 900px at 85% 25%, rgba(255, 255, 255, 0.04), transparent 60%),
-      url("/images/logo/backgroundlogo.png?v=1");
+      url("/images/graphics/Gemini_Generated_Image_1i74ao1i74ao1i74-topaz-enhance-3.4x-3.png");
     background-attachment: fixed;
     background-position: center, center, center;
     background-repeat: no-repeat;
-    background-size: cover, cover, clamp(340px, 48vmin, 640px);
+    background-size: cover, cover, cover;
   }
 
   html[data-intro='1'] {
