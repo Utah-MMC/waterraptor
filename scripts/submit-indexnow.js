@@ -39,16 +39,25 @@ async function getSitemapUrls() {
   const path = require('path');
   
   try {
-    // Try to parse sitemap from built output first
-    const sitemapPath = path.join(__dirname, '..', '.next', 'server', 'app', 'sitemap.xml');
-    
-    if (fs.existsSync(sitemapPath)) {
+    const candidates = [
+      // Legacy/static sitemap (if present)
+      path.join(__dirname, '..', 'public', 'sitemap.xml'),
+      // Some builds may emit a physical sitemap artifact
+      path.join(__dirname, '..', '.next', 'server', 'app', 'sitemap.xml'),
+      path.join(__dirname, '..', '.next', 'server', 'sitemap.xml'),
+    ];
+
+    for (let i = 0; i < candidates.length; i++) {
+      const sitemapPath = candidates[i];
+      if (!fs.existsSync(sitemapPath)) continue;
+
+      const stat = fs.statSync(sitemapPath);
+      if (!stat.isFile()) continue;
+
       const xml = fs.readFileSync(sitemapPath, 'utf8');
       const urlMatches = xml.match(/<loc>(.*?)<\/loc>/g) || [];
       const urls = urlMatches.map(match => match.replace(/<\/?loc>/g, ''));
-      if (urls.length > 0) {
-        return urls;
-      }
+      if (urls.length > 0) return urls;
     }
 
     // Fallback: Try to fetch from live site (for post-deployment scenarios)
@@ -75,7 +84,7 @@ async function getSitemapUrls() {
     console.warn('⚠️  Could not find sitemap. URLs will need to be submitted manually via API or webhook.');
     return [];
   } catch (error) {
-    console.error('Error getting sitemap URLs:', error);
+    console.error('Error getting sitemap URLs:', error instanceof Error ? error.message : error);
     return [];
   }
 }
@@ -130,4 +139,3 @@ main().catch(error => {
   console.error('❌ Fatal error:', error);
   process.exit(1);
 });
-

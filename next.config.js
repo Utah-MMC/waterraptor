@@ -33,6 +33,16 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
   },
+  async redirects() {
+    return [
+      { source: '/services.html', destination: '/lake-services', permanent: true },
+      { source: '/equipment.html', destination: '/water-raptor', permanent: true },
+      { source: '/treatment.html', destination: '/aquatic-herbicide', permanent: true },
+      { source: '/contact.html', destination: '/contact', permanent: true },
+      { source: '/about.html', destination: '/', permanent: true },
+      { source: '/partners.html', destination: '/', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
@@ -53,6 +63,46 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+      {
+        source: '/blog',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/blog/:slug*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/gallery-list.json',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=300, s-maxage=86400, stale-while-revalidate=604800',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/json; charset=utf-8',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
@@ -79,6 +129,19 @@ const nextConfig = {
           {
             key: 'Content-Type',
             value: 'text/plain',
+          },
+        ],
+      },
+      {
+        source: '/rss.xml',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/rss+xml',
           },
         ],
       },

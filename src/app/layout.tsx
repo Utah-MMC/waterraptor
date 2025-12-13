@@ -8,6 +8,52 @@ import ClawBackground from './components/ClawBackground'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://waterraptor.com/#website',
+      url: 'https://waterraptor.com',
+      name: 'WaterRaptor.com',
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://waterraptor.com/#business',
+      name: 'The Water Raptor',
+      url: 'https://waterraptor.com',
+      telephone: '+1-801-590-8516',
+      email: 'info@waterraptor.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Salt Lake City',
+        addressRegion: 'UT',
+        addressCountry: 'US',
+      },
+      areaServed: [
+        { '@type': 'State', name: 'Utah' },
+        { '@type': 'State', name: 'Idaho' },
+        { '@type': 'State', name: 'Wyoming' },
+        { '@type': 'State', name: 'Arizona' },
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+1-801-590-8516',
+          contactType: 'sales',
+          areaServed: ['US-UT', 'US-ID', 'US-WY', 'US-AZ'],
+          availableLanguage: ['en'],
+        },
+      ],
+    },
+  ],
+}
+
+function toJsonLd(value: unknown) {
+  return JSON.stringify(value).replace(/</g, '\\u003c')
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://waterraptor.com'),
   title: 'WaterRaptor.com - Professional Pond & Lake Management Services',
@@ -52,6 +98,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Water Raptor RSS"
+          href="/rss.xml"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLd(structuredData) }}
+        />
         <Script
           id="model-viewer-loader"
           strategy="afterInteractive"

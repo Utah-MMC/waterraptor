@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { GalleryImage, GalleryResponse } from "@/lib/gallery";
+import { GalleryImage } from "@/lib/gallery";
+import { getGalleryList, shuffleArray } from "@/lib/gallery-client";
 
 type MediaShowcaseProps = {
   offset: number;
@@ -32,27 +33,19 @@ export function MediaShowcase({
     setLoading(true);
     setError(null);
 
-    fetch(`/api/gallery?offset=${offset}&limit=${count}`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Unable to load gallery assets");
-        }
-        return res.json() as Promise<GalleryResponse>;
-      })
-      .then((data) => {
-        if (!cancelled) {
-          setImages(data.images);
-        }
+    getGalleryList()
+      .then((allImages) => {
+        if (cancelled) return;
+        const shuffled = shuffleArray(allImages);
+        setImages(shuffled.slice(offset, offset + count));
       })
       .catch((fetchError) => {
-        if (!cancelled) {
-          setError((fetchError as Error).message);
-        }
+        if (cancelled) return;
+        setError((fetchError as Error).message);
       })
       .finally(() => {
-        if (!cancelled) {
-          setLoading(false);
-        }
+        if (cancelled) return;
+        setLoading(false);
       });
 
     return () => {

@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GalleryImage, GalleryResponse } from "@/lib/gallery";
+import { GalleryImage } from "@/lib/gallery";
+import { getGalleryList, shuffleArray } from "@/lib/gallery-client";
 import IntroGate from "@/components/IntroGate";
 import {
   Check,
@@ -30,12 +31,15 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), {
   ),
 });
 
+import { getValidHeroImage } from "@/lib/hero-images";
+
 const BRAND = {
   name: "The Water Raptor",
   tagline:
     "Professional pond and lake management services including harvesting, dredging, weed control, and water quality management for healthy aquatic ecosystems.",
   canonical: "https://waterraptor.com",
-  heroImage: "/images/hero-pond-cleanup.jpg?v=1",
+  // RULE: Only use hero images that feature The Water Raptor machine
+  heroImage: getValidHeroImage("/images/hero-pond-cleanup.jpg"),
 };
 
 const STATS = [
@@ -141,50 +145,14 @@ const IDENTITY_BULLETS = [
 ];
 
 export default function PondHarvestingPage() {
-  const jsonLd = useMemo(
-    () => ({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: BRAND.name,
-      description: BRAND.tagline,
-      url: BRAND.canonical,
-      telephone: "+1-801-590-8516",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Salt Lake City",
-        addressRegion: "UT",
-        addressCountry: "US",
-      },
-      serviceArea: [
-        { "@type": "State", name: "Utah" },
-        { "@type": "State", name: "Idaho" },
-        { "@type": "State", name: "Wyoming" },
-        { "@type": "State", name: "Arizona" },
-      ],
-    }),
-    []
-  );
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify(jsonLd);
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [jsonLd]);
-
   const [galleryPreview, setGalleryPreview] = useState<GalleryImage[]>([]);
 
   useEffect(() => {
     let cancelled = false;
-    fetch(`/api/gallery?limit=${GALLERY_LIMIT}`)
-      .then((res) => res.json())
-      .then((data: GalleryResponse) => {
-        if (!cancelled && Array.isArray(data.images)) {
-          setGalleryPreview(data.images);
-        }
+    getGalleryList()
+      .then((images) => {
+        if (cancelled) return;
+        setGalleryPreview(shuffleArray(images).slice(0, GALLERY_LIMIT));
       })
       .catch((error) => {
         console.error("Preview gallery load failed", error);
@@ -201,36 +169,36 @@ export default function PondHarvestingPage() {
     <IntroGate>
     <div className="bg-transparent text-white">
       <section
-        className="relative overflow-hidden bg-slate-900/60 backdrop-blur"
+        className="relative overflow-hidden bg-slate-900/60 backdrop-blur min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh]"
         aria-label="Hero"
       >
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-70"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(2,27,54,0.85), rgba(6,78,104,0.65)), url(${heroImage})`,
-        }}
+          className="absolute inset-0 opacity-70 hero-bg-mobile"
+          style={{
+            backgroundImage: `linear-gradient(135deg, rgba(2,27,54,0.85), rgba(6,78,104,0.65)), url(${heroImage})`,
+          }}
         />
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-24">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20 md:py-24">
           <Badge className="bg-slate-200 text-slate-900">waterraptor.com</Badge>
-          <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-5xl">
+          <h1 className="mt-6 text-3xl sm:text-4xl font-semibold leading-tight md:text-5xl">
             {BRAND.name}
           </h1>
-          <p className="mt-4 max-w-3xl text-lg text-slate-200">
-            {BRAND.tagline} The amphibious Water Raptor cuts, rakes, and conveys aquatic weeds, dredges muck,
-            and supports herbicide or drone staging without waiting for barges or cranes. Every deployment highlights the machine and crew clearing ponds, lakes, rivers, and canals.
+          <p className="mt-4 max-w-3xl text-base sm:text-lg text-slate-200 leading-relaxed">
+            {BRAND.tagline} The amphibious Water Raptor cuts, rakes, and conveys aquatic weeds, dredges muck and sediment,
+            and supports herbicide or aerial drone staging without waiting for barges or cranes. Professional pond and lake management, maintenance, cleanup, and restoration services. Every deployment highlights the machine and crew clearing ponds, lakes, rivers, canals, and stormwater systems. Expert harvesting, dredging, weed control, vegetation management, aeration, water quality testing, nutrient reduction, and habitat restoration.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg" className="bg-emerald-500 text-white hover:bg-emerald-600" asChild>
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+            <Button size="lg" className="bg-emerald-500 text-white hover:bg-emerald-600 w-full sm:w-auto" asChild>
               <Link href="/lake-services">Explore Services</Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 bg-white/20 text-white hover:bg-white/30 hover:text-white" asChild>
+            <Button variant="outline" size="lg" className="border-white/30 bg-white/20 text-white hover:bg-white/30 hover:text-white w-full sm:w-auto" asChild>
               <a href="#operations">View Operations</a>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 bg-slate-900/70 text-white hover:bg-slate-800/90 hover:text-white" asChild>
+            <Button variant="outline" size="lg" className="border-white/30 bg-slate-900/70 text-white hover:bg-slate-800/90 hover:text-white w-full sm:w-auto" asChild>
               <a href="#contact-form">Schedule Deployment</a>
             </Button>
           </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3">
           {STATS.map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-5 shadow-lg">
               <p className="text-3xl font-semibold text-emerald-200">{stat.value}</p>
@@ -251,8 +219,10 @@ export default function PondHarvestingPage() {
           <h2 className="text-3xl font-bold text-white">The Water Raptor at work</h2>
           <p className="mx-auto max-w-3xl text-slate-200">
             Our amphibious machine and crew focus on harvesting aquatic weeds, invasive plant removal,
-            aquatic herbicide staging, dredging, aerial drone support, and pond, lake, river, and canal maintenance
-            so every service gets the same priority and clarity.
+            aquatic herbicide staging, dredging, aerial drone support, and comprehensive pond, lake, river, and canal maintenance.
+            Professional services include mechanical harvesting, sediment removal, muck cleanup, algae control, water quality management,
+            aeration, shoreline restoration, wetland planting, habitat installation, and ongoing maintenance programs.
+            Every service gets the same priority, clarity, and professional treatment.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
@@ -570,32 +540,19 @@ export default function PondHarvestingPage() {
 const GALLERY_LIMIT = 12;
 
 function ImageGallery() {
-  const [images, setImages] = useState<GalleryImage[]>([]);
-  const [offset, setOffset] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [allImages, setAllImages] = useState<GalleryImage[]>([]);
+  const [visibleCount, setVisibleCount] = useState(GALLERY_LIMIT);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const loadPage = async (pageOffset: number, append: boolean) => {
+  const loadGallery = async () => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(
-        `/api/gallery?offset=${pageOffset}&limit=${GALLERY_LIMIT}`
-      );
-      if (!response.ok) {
-        throw new Error("Unable to load gallery assets");
-      }
-
-      const data: GalleryResponse = await response.json();
-      if (append) {
-        setImages((prev) => [...prev, ...data.images]);
-      } else {
-        setImages(data.images);
-      }
-      setOffset(pageOffset + data.images.length);
-      setTotal(data.total);
+      const images = await getGalleryList();
+      setAllImages(shuffleArray(images));
+      setVisibleCount(GALLERY_LIMIT);
     } catch (fetchError) {
       console.error("Gallery load failed", fetchError);
       setError((fetchError as Error).message);
@@ -606,17 +563,19 @@ function ImageGallery() {
 
   const loadMore = () => {
     if (loading) return;
-    loadPage(offset, true);
+    setVisibleCount((prev) => Math.min(prev + GALLERY_LIMIT, allImages.length));
   };
 
   const resetGallery = () => {
-    loadPage(0, false);
+    setVisibleCount(GALLERY_LIMIT);
   };
 
   useEffect(() => {
-    loadPage(0, false);
+    loadGallery();
   }, []);
 
+  const images = allImages.slice(0, visibleCount);
+  const total = allImages.length;
   const hasMore = images.length < total;
 
   return (
