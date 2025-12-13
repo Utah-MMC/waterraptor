@@ -260,7 +260,7 @@ export default function Truxor3DViewer() {
               {isExploded ? "Exploded View" : "Truxor T50 3D Model"}
             </div>
             <div className="text-sm text-slate-300 mb-4">
-              Click "Show 3D" to view the interactive model
+              Click &quot;Show 3D&quot; to view the interactive model
             </div>
             <Button
               variant="outline"

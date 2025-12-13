@@ -115,6 +115,15 @@ export default function BlogPage() {
               href={story.href}
               className="group relative rounded-3xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg"
             >
+              {/* Claw trademark in top right */}
+              <div className="absolute top-3 right-3 z-10">
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor trademark"
+                  className="w-6 h-6 opacity-80"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                />
+              </div>
               <div className="space-y-2">
                 <div className="text-sm text-emerald-300 uppercase tracking-[0.3em]">Case Study</div>
                 <h3 className="text-2xl font-semibold text-white">{story.title}</h3>
@@ -139,8 +148,17 @@ export default function BlogPage() {
               <Link
                 key={guide.title}
                 href={guide.href}
-                className="rounded-3xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg"
+                className="relative rounded-3xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg"
               >
+                {/* Claw trademark in top right */}
+                <div className="absolute top-3 right-3 z-10">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor trademark"
+                    className="w-6 h-6 opacity-80"
+                    style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                  />
+                </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Guide</p>
                 <h3 className="mt-2 text-2xl font-semibold text-white">{guide.title}</h3>
                 <p className="mt-3 text-sm text-slate-200">{guide.summary}</p>
