@@ -13,9 +13,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import JsonLd from '@/components/JsonLd';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
 import { getAuthorById } from '@/lib/authors';
-import { getAllBlogSlugs, getBlogPostBySlug } from '@/lib/blog';
+import { getAllBlogSlugs, getBlogIndexPosts, getBlogPostBySlug } from '@/lib/blog';
 
 export const dynamic = 'force-static';
+
+type TocItem = {
+  id: string;
+  label: string;
+  depth: 2 | 3;
+};
 
 function formatDate(value: string) {
   const date = new Date(`${value}T00:00:00Z`);
@@ -26,6 +32,50 @@ function formatDate(value: string) {
     day: 'numeric',
     timeZone: 'UTC',
   });
+}
+
+function slugifyHeading(value: string) {
+  const base = value
+    .trim()
+    .toLowerCase()
+    .replace(/`/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  return base || 'section';
+}
+
+function extractToc(content: string): TocItem[] {
+  const lines = content.split(/\r?\n/);
+  const seen = new Map<string, number>();
+  const items: TocItem[] = [];
+  let inFence = false;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('```')) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+
+    const match = /^(#{2,3})\s+(.+?)\s*$/.exec(trimmed);
+    if (!match) continue;
+
+    const depth = match[1].length === 2 ? 2 : 3;
+    const raw = match[2].replace(/#+\s*$/, '').trim();
+    const baseId = slugifyHeading(raw);
+    const nextCount = (seen.get(baseId) ?? 0) + 1;
+    seen.set(baseId, nextCount);
+    const id = nextCount === 1 ? baseId : `${baseId}-${nextCount}`;
+
+    items.push({ id, label: raw, depth });
+  }
+
+  return items;
 }
 
 export function generateStaticParams() {
@@ -111,6 +161,24 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   const author = getAuthorById(post.authorId);
   const heroImage = post.heroImage ?? '/images/image004.jpg';
+  const authorId = author?.id ?? post.authorId;
+  const authorUrl = `/blog/author/${encodeURIComponent(authorId)}`;
+  const toc = extractToc(post.content);
+
+  const relatedPosts = getBlogIndexPosts()
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => {
+      let score = 0;
+      if (post.topic && candidate.topic === post.topic) score += 3;
+      if (post.type && candidate.type === post.type) score += 1;
+      const sharedTags = candidate.tags.filter((tag) => post.tags.includes(tag)).length;
+      score += sharedTags * 2;
+      return { candidate, score };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score || b.candidate.publishedAt.localeCompare(a.candidate.publishedAt))
+    .slice(0, 4)
+    .map(({ candidate }) => candidate);
 
   return (
     <div className="min-h-screen bg-transparent text-white">
@@ -150,19 +218,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <span className="text-slate-500">Read:</span> {post.readingMinutes} min
               </span>
               <span>
-                <span className="text-slate-500">By:</span> {author?.name ?? 'Water Raptor'}
+                <span className="text-slate-500">By:</span>{' '}
+                <Link className="hover:text-white underline underline-offset-4" href={authorUrl}>
+                  {author?.name ?? 'Water Raptor'}
+                </Link>
               </span>
             </div>
 
             {post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {post.tags.slice(0, 6).map((tag) => (
-                  <span
+                  <Link
                     key={tag}
+                    href={`/blog/tag/${encodeURIComponent(tag)}`}
                     className="rounded-full border border-white/15 bg-slate-900/50 px-3 py-1 text-xs uppercase tracking-[0.25em] text-slate-300"
                   >
                     {tag}
-                  </span>
+                  </Link>
                 ))}
               </div>
             )}
@@ -220,6 +292,73 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-28 h-fit">
+          {toc.length > 0 && (
+            <Card className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg">
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-lg font-semibold text-white">On this page</CardTitle>
+              </CardHeader>
+              <CardContent className="relative z-10 text-sm text-slate-200">
+                <nav aria-label="Table of contents">
+                  <ul className="space-y-2">
+                    {toc.map((item) => (
+                      <li key={item.id} className={item.depth === 3 ? 'ml-4' : undefined}>
+                        <a
+                          href={`#${item.id}`}
+                          className="hover:text-white underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </CardContent>
+            </Card>
+          )}
+
+          <Card className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg">
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-lg font-semibold text-white">About the author</CardTitle>
+            </CardHeader>
+            <CardContent className="relative z-10 space-y-4 text-sm text-slate-200">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-400/15 border border-emerald-400/30">
+                  <span className="text-sm font-semibold text-emerald-200">
+                    {author?.initials ?? 'WR'}
+                  </span>
+                </div>
+                <div className="space-y-1">
+                  <Link className="block text-base font-semibold text-white hover:underline" href={authorUrl}>
+                    {author?.name ?? 'Water Raptor'}
+                  </Link>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                    {author?.role ?? 'Team'}
+                  </p>
+                  {author?.bio && <p>{author.bio}</p>}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {relatedPosts.length > 0 && (
+            <Card className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg">
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-lg font-semibold text-white">Related posts</CardTitle>
+              </CardHeader>
+              <CardContent className="relative z-10 space-y-3 text-sm text-slate-200">
+                {relatedPosts.map((related) => (
+                  <Link
+                    key={related.slug}
+                    className="block hover:text-white"
+                    href={`/blog/${related.slug}`}
+                  >
+                    {related.title}
+                  </Link>
+                ))}
+              </CardContent>
+            </Card>
+          )}
+
           <Card className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg">
             <CardHeader className="relative z-10">
               <CardTitle className="text-lg font-semibold text-white">Related links</CardTitle>
@@ -241,4 +380,3 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
-

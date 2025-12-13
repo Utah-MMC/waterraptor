@@ -81,5 +81,30 @@ export const mdxComponents = {
       className="mt-6 overflow-x-auto rounded-2xl border border-white/15 bg-slate-950/60 p-4 text-slate-100"
     />
   ),
+  hr: (props: ComponentProps<'hr'>) => (
+    <hr {...props} className="my-10 border-white/10" />
+  ),
+  table: (props: ComponentProps<'table'>) => (
+    <div className="mt-6 overflow-x-auto rounded-2xl border border-white/15 bg-slate-950/30">
+      <table {...props} className="w-full border-collapse text-left text-sm" />
+    </div>
+  ),
+  thead: (props: ComponentProps<'thead'>) => (
+    <thead {...props} className="bg-slate-900/60" />
+  ),
+  tbody: (props: ComponentProps<'tbody'>) => (
+    <tbody {...props} className="divide-y divide-white/10" />
+  ),
+  tr: (props: ComponentProps<'tr'>) => (
+    <tr {...props} className="align-top" />
+  ),
+  th: (props: ComponentProps<'th'>) => (
+    <th
+      {...props}
+      className="px-4 py-3 font-semibold text-white whitespace-nowrap"
+    />
+  ),
+  td: (props: ComponentProps<'td'>) => (
+    <td {...props} className="px-4 py-3 text-slate-200" />
+  ),
 };
-

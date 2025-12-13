@@ -10,6 +10,7 @@ export type BlogIndexPost = {
   title: string;
   summary: string;
   publishedAt: string;
+  authorId: string;
   authorName: string;
   authorRole: string;
   readingMinutes: number;
@@ -33,11 +34,23 @@ function formatDate(value: string) {
   });
 }
 
-export default function BlogIndexClient({ posts }: { posts: BlogIndexPost[] }) {
-  const [query, setQuery] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [selectedType, setSelectedType] = useState<string>("All");
-  const [selectedTopic, setSelectedTopic] = useState<string>("All");
+export default function BlogIndexClient({
+  posts,
+  initialQuery = "",
+  initialTags = [],
+  initialType = "All",
+  initialTopic = "All",
+}: {
+  posts: BlogIndexPost[];
+  initialQuery?: string;
+  initialTags?: string[];
+  initialType?: string;
+  initialTopic?: string;
+}) {
+  const [query, setQuery] = useState(initialQuery);
+  const [selectedTags, setSelectedTags] = useState<string[]>(initialTags);
+  const [selectedType, setSelectedType] = useState<string>(initialType);
+  const [selectedTopic, setSelectedTopic] = useState<string>(initialTopic);
 
   const tagCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -245,7 +258,14 @@ export default function BlogIndexClient({ posts }: { posts: BlogIndexPost[] }) {
                 <p className="text-sm text-slate-200">{post.summary}</p>
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span className="text-xs uppercase tracking-[0.3em] text-slate-400">
-                    {post.authorName} - {post.readingMinutes} min
+                    By{" "}
+                    <Link
+                      href={`/blog/author/${encodeURIComponent(post.authorId)}`}
+                      className="text-slate-200 hover:text-white underline underline-offset-4"
+                    >
+                      {post.authorName}
+                    </Link>{" "}
+                    · {post.readingMinutes} min
                   </span>
                   <Button
                     variant="ghost"

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { CITIES_DATA } from './cities/cities-data';
+import { AUTHORS } from '@/lib/authors';
 import { getBlogIndexPosts } from '@/lib/blog';
 
 export const revalidate = 60 * 60 * 24;
@@ -301,5 +302,33 @@ const resourcePages = [
     priority: 0.75,
   }));
 
-  return [...basePages, ...servicePages, ...dynamicServicePages, ...resourcePages, ...blogPostPages, ...cityPages];
+  const tagSet = new Set<string>();
+  blogPosts.forEach((post) => {
+    post.tags.forEach((tag) => tagSet.add(tag));
+  });
+
+  const blogTagPages = Array.from(tagSet).map((tag) => ({
+    url: `${baseUrl}/blog/tag/${encodeURIComponent(tag)}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.4,
+  }));
+
+  const blogAuthorPages = AUTHORS.map((author) => ({
+    url: `${baseUrl}/blog/author/${encodeURIComponent(author.id)}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.35,
+  }));
+
+  return [
+    ...basePages,
+    ...servicePages,
+    ...dynamicServicePages,
+    ...resourcePages,
+    ...blogPostPages,
+    ...blogTagPages,
+    ...blogAuthorPages,
+    ...cityPages,
+  ];
 }
