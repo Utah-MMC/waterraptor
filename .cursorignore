@@ -1,0 +1,14 @@
+# Ignore large image directories from Codex indexing
+public/images/
+public/videos/
+temp_frames/
+
+# Ignore build outputs
+.next/
+node_modules/
+build/
+dist/
+
+# Ignore internal documentation
+docs/
+

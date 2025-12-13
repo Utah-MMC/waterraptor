@@ -8,9 +8,9 @@ import dynamic from 'next/dynamic';
 const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
 
 export const metadata: Metadata = {
-  title: 'Aquatic Management Services | Comprehensive Water Body Management | WaterRaptor.com',
-  description: 'Expert aquatic management services for ponds, lakes, and water features. Comprehensive solutions for vegetation control, water quality, and ecosystem health.',
-  keywords: 'aquatic management, aquatic services, water body management, pond management, aquatic ecosystem, Utah aquatic services',
+  title: 'Pond & Lake Management Services | Comprehensive Aquatic Management | WaterRaptor.com',
+  description: 'Expert pond and lake management services for healthy aquatic ecosystems. Comprehensive solutions including harvesting, dredging, vegetation control, water quality management, and ongoing maintenance.',
+  keywords: 'pond and lake management, aquatic management, pond management services, lake management services, aquatic ecosystem management, water body management, pond maintenance, lake maintenance, Utah pond and lake management',
   openGraph: {
     title: 'Aquatic Management Services | WaterRaptor.com',
     description: 'Comprehensive aquatic management for all types of water bodies.',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function AquaticManagementPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-transparent text-white">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
@@ -28,7 +28,7 @@ export default function AquaticManagementPage() {
           <h1 className="text-5xl font-bold mb-6 gradient-text">
             Professional Aquatic Management Services
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Complete aquatic management solutions for ponds, lakes, and water features. 
             Our expert team provides comprehensive care for all aspects of your aquatic ecosystem.
           </p>
@@ -45,7 +45,7 @@ export default function AquaticManagementPage() {
           </div>
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">Complete Aquatic Ecosystem Care</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-slate-300">
               Aquatic management requires a holistic approach that considers water quality, 
               vegetation, wildlife, and the overall ecosystem balance. Our services address 
               every aspect of aquatic health.
@@ -73,7 +73,7 @@ export default function AquaticManagementPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="container mx-auto px-4 py-16 bg-white">
+      <section className="container mx-auto px-4 py-16 bg-slate-900/60 border border-white/10">
         <h2 className="text-4xl font-bold text-center mb-12">Our Aquatic Management Services</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card>
@@ -135,7 +135,7 @@ export default function AquaticManagementPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="container mx-auto px-4 py-16 bg-white">
+      <section className="container mx-auto px-4 py-16 bg-slate-900/60 border border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-8">Get Your Aquatic Management Consultation</h2>
           <ContactForm />
@@ -144,4 +144,3 @@ export default function AquaticManagementPage() {
     </div>
   );
 }
-

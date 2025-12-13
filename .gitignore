@@ -105,3 +105,13 @@ build/
 
 # Vercel
 .vercel
+
+# Internal documentation (not for customers)
+docs/
+
+# Large local media assets (keep repo lean)
+public/images/*
+!public/images/graphics/
+!public/images/graphics/**
+!public/images/logo/
+!public/images/logo/**

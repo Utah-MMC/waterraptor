@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { CITIES_DATA, getCitiesByState } from './cities-data';
 import { Button } from '@/components/ui/button';
@@ -43,11 +44,15 @@ export default function CitiesPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="/images/New Images/Truxor_Cutting-Collecting_1_web.jpg"
-            alt="Professional pond cleanup services across multiple states"
-            className="w-full h-full object-cover"
-          />
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/New Images/Truxor_Cutting-Collecting_1_web.jpg"
+              alt="Professional pond cleanup services across multiple states"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-6 px-6 py-28 text-white">
@@ -284,16 +289,16 @@ export default function CitiesPage() {
       {/* Contact Section */}
       <section id="contact-form" className="mx-auto max-w-7xl px-6 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4 gradient-text">Don't See Your City?</h2>
+          <h2 className="text-3xl font-bold mb-4 gradient-text">Don&rsquo;t See Your City?</h2>
           <p className="text-lg text-muted-foreground">
-            We're always expanding our service areas. Contact us to discuss your specific water management needs.
+            We&rsquo;re always expanding our service areas. Contact us to discuss your specific water management needs.
           </p>
         </div>
         
         <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-8 text-center">
           <h3 className="text-xl font-semibold mb-4 gradient-text">Get Professional Pond Services</h3>
           <p className="text-muted-foreground mb-6">
-            Our specialized amphibious equipment can handle unique challenges that other services can't reach.
+            Our specialized amphibious equipment can handle unique challenges that other services can&rsquo;t reach.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button className="gradient-bg hover-lift shadow-glow">

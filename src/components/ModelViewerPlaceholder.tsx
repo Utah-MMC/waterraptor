@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 export default function ModelViewerPlaceholder() {
   return (
     <div className="relative h-96 w-full">
-      <img 
-        src="/images/New Images/Truxor_Cutting-Collecting_10_web.jpg" 
-        alt="Professional equipment in action" 
-        className="w-full h-full object-cover rounded-lg"
+      <Image
+        src="/images/New Images/Truxor_Cutting-Collecting_10_web.jpg"
+        alt="Professional equipment in action"
+        fill
+        className="object-cover rounded-lg"
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
       <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
       <div className="absolute inset-0 grid place-items-center">

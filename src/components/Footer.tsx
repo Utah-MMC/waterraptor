@@ -3,69 +3,51 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const serviceLinks = [
-    { href: '/lake-management', label: 'Lake Management' },
-    { href: '/lake-maintenance', label: 'Lake Maintenance' },
-    { href: '/aquatic-management', label: 'Aquatic Management' },
-    { href: '/lake-restoration', label: 'Lake Restoration' },
-    { href: '/water-management', label: 'Water Management' },
-    { href: '/lake-weed-control', label: 'Lake Weed Control' },
-    { href: '/lake-cleanup', label: 'Lake Cleanup' },
-    { href: '/aquatic-vegetation-management', label: 'Vegetation Management' },
-    { href: '/lake-dredging', label: 'Lake Dredging' },
-    { href: '/water-quality-management', label: 'Water Quality Management' },
     { href: '/lake-services', label: 'Lake Services' },
-    { href: '/aquatic-services', label: 'Aquatic Services' },
-    { href: '/utah-lake-services', label: 'Utah Lake Services' },
+    { href: '/lake-management', label: 'Lake & Pond Management' },
+    { href: '/harvesting', label: 'Harvesting with The Water Raptor' },
+    { href: '/invasive-aquatic-plants', label: 'Invasive Aquatic Plants' },
+    { href: '/aquatic-herbicide', label: 'Aquatic Herbicide Support' },
+    { href: '/dredge-operations', label: 'Dredge Operations' },
+    { href: '/river-canal-management', label: 'River & Canal Management' },
+    { href: '/truxor-t50', label: 'Water Raptor Equipment' },
   ];
 
   const quickLinks = [
     { href: '/', label: 'Home' },
-    { href: '/truxor-t50', label: 'Truxor T50 Equipment' },
-    { href: '/cities', label: 'Service Areas' },
+    { href: '/resources', label: 'Resources' },
+    { href: '/blog', label: 'Blog & Stories' },
+    { href: '/#contact-form', label: 'Contact' },
     { href: '/lake-services', label: 'All Services' },
-    { href: '/#contact-form', label: 'Contact Us' },
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="border-t border-white/10 bg-slate-950/70 text-slate-300 backdrop-blur">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-white text-lg font-bold mb-4">WaterRaptor.com</h3>
-            <p className="text-sm mb-4">
-              Professional pond cleanup and lake weed removal services in Utah. 
-              Expert aquatic vegetation control using Truxor T50 equipment.
+        <div className="grid gap-10 md:grid-cols-4">
+          <div className="space-y-4">
+            <h3 className="text-white text-lg font-bold">WaterRaptor.com</h3>
+            <p className="text-sm text-slate-400">
+              The Water Raptor amphibious machine harvesting ponds, lakes, rivers, and canals. Clean weeds, move muck, and stage herbicide work without barges.
             </p>
+            <p className="text-xs uppercase tracking-[0.4em] text-emerald-400">Regional operations</p>
           </div>
 
-          {/* Services */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-4">Our Services</h3>
+            <h3 className="text-white text-lg font-bold mb-4">Services & focus</h3>
             <ul className="space-y-2 text-sm">
-              {serviceLinks.slice(0, 6).map((link) => (
+              {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/truxor-t50" className="hover:text-white transition-colors">
-                  Truxor T50 Equipment
-                </Link>
-              </li>
-              <li>
-                <Link href="/lake-services" className="text-blue-400 hover:text-blue-300 transition-colors">
-                  View All Services →
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-white text-lg font-bold mb-4">Learn more</h3>
             <ul className="space-y-2 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -77,34 +59,30 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h3 className="text-white text-lg font-bold mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-emerald-300" />
                 <span>+1 (801) 555-0123</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <a href="mailto:info@waterraptor.com" className="hover:text-white transition-colors">
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-emerald-300" />
+                <Link href="mailto:info@waterraptor.com" className="hover:text-white">
                   info@waterraptor.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Service Area: Utah Statewide</span>
-              </li>
-            </ul>
+                </Link>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-emerald-300" />
+                <span>Utah + regional mobilization</span>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        <div className="mt-10 border-t border-white/5 pt-6 text-center text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} WaterRaptor.com. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 }
-

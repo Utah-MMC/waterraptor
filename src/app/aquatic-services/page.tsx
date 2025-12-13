@@ -20,14 +20,14 @@ export const metadata: Metadata = {
 
 export default function AquaticServicesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-transparent text-white">
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <Badge className="mb-4">Complete Aquatic Solutions</Badge>
           <h1 className="text-5xl font-bold mb-6 gradient-text">
             Professional Aquatic Services
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Comprehensive aquatic services for ponds, lakes, and all types of water features. 
             Our expert team provides complete care for aquatic ecosystems using professional 
             equipment and proven methods.
@@ -37,7 +37,7 @@ export default function AquaticServicesPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">Complete Aquatic Ecosystem Care</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-slate-300">
               Our aquatic services address all aspects of water body health, from water quality 
               to vegetation management to wildlife support. We provide holistic solutions that 
               maintain ecosystem balance and long-term sustainability.
@@ -72,7 +72,7 @@ export default function AquaticServicesPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16 bg-white">
+      <section className="container mx-auto px-4 py-16 bg-slate-900/60 border border-white/10">
         <h2 className="text-4xl font-bold text-center mb-12">Our Aquatic Services</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card>
@@ -114,7 +114,7 @@ export default function AquaticServicesPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-16 bg-slate-900/60 border border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-8">Get Your Aquatic Services Consultation</h2>
           <ContactForm />
@@ -123,4 +123,3 @@ export default function AquaticServicesPage() {
     </div>
   );
 }
-

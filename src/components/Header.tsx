@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
@@ -10,71 +11,76 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/lake-services', label: 'Services' },
-    { href: '/truxor-t50', label: 'Equipment' },
-    { href: '/lake-management', label: 'Lake Management' },
-    { href: '/lake-maintenance', label: 'Maintenance' },
-    { href: '/lake-dredging', label: 'Dredging' },
-    { href: '/utah-lake-services', label: 'Utah Services' },
-    { href: '/#contact-form', label: 'Contact' },
+    { href: '/harvesting', label: 'Harvesting Focus' },
+    { href: '/resources', label: 'Resources' },
+    { href: '/blog', label: 'Insights' },
+    { href: '/truxor-t50', label: 'Water Raptor' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-slate-950/95 border-b border-white/10 text-slate-100 backdrop-blur">
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-24">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
             <img
-              src="/images/logo/Untitled (Logo) (1).svg"
-              alt="Water Raptor Logo"
-              className="h-20 w-auto md:h-24"
+              src="/images/logo/newlogo.svg"
+              alt="Water Raptor logo"
+              className="h-[76px] w-auto md:h-[88px]"
             />
+            <div className="hidden md:block">
+              <p className="text-sm text-slate-300">Pond & Lake Management</p>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6 text-base font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-slate-200 hover:text-emerald-300 transition-colors tracking-wide"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/#contact-form"
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="raptor-claw-marks flex items-center gap-2 rounded-full border border-emerald-500 bg-white px-5 py-2.5 text-sm uppercase tracking-[0.3em] text-slate-950 transition hover:bg-emerald-500 hover:text-white relative"
             >
-              <Phone className="h-4 w-4" />
-              Get Quote
+              <Phone className="h-5 w-5 relative z-10" />
+              <span className="relative z-10">Book Us</span>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-slate-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-white/10">
+            <div className="flex flex-col gap-4 text-base">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-slate-200 hover:text-emerald-300 transition-colors font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/#contact-form"
+                className="raptor-claw-marks flex items-center gap-2 rounded-full border border-emerald-500 bg-white px-5 py-3 text-sm uppercase tracking-[0.3em] text-slate-950 transition hover:bg-emerald-500 hover:text-white font-medium relative"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Phone className="h-5 w-5 relative z-10" />
+                <span className="relative z-10">Book Us</span>
+              </Link>
             </div>
           </div>
         )}
@@ -82,4 +88,3 @@ export default function Header() {
     </header>
   );
 }
-

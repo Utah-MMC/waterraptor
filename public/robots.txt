@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Sitemap location (update with your actual domain)
+# Sitemap location
 Sitemap: https://waterraptor.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
@@ -17,10 +17,12 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Block access to admin areas (if any)
+# Block access to admin areas and API routes
+Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
+Disallow: /_next/
 
 # Allow access to important files
 Allow: /images/

@@ -3,6 +3,7 @@
 
 /// <reference path="../types/model-viewer.d.ts" />
 
+import Image from "next/image";
 import { useState, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -319,10 +320,12 @@ export default function Simple3DViewer() {
               >
                 {/* Image Section - Larger */}
                 <div className="relative w-full h-32 rounded-lg overflow-hidden mb-4">
-                  <img 
-                    src={attachment.image} 
-                    alt={attachment.name} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  <Image
+                    src={attachment.image}
+                    alt={attachment.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute top-3 left-3 p-2 rounded-lg bg-white/95 backdrop-blur-sm shadow-sm">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -109,10 +110,12 @@ export default function ModelViewer() {
               >
                 <div className="flex gap-3">
                   <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                    <img 
-                      src={attachment.image} 
-                      alt={attachment.name} 
-                      className="w-full h-full object-cover"
+                    <Image
+                      src={attachment.image}
+                      alt={attachment.name}
+                      fill
+                      sizes="64px"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/20"></div>
                   </div>

@@ -177,11 +177,11 @@ export default function ProcessingIndicator() {
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 mb-1">What's Happening?</h4>
+              <h4 className="font-medium text-blue-900 mb-1">What&rsquo;s Happening?</h4>
               <p className="text-sm text-blue-800">
                 Polycam is analyzing your 20 frames to create a detailed 3D model of your equipment. 
                 The AI is identifying common features across images and reconstructing the 3D geometry. 
-                You'll receive an email notification when your GLB file is ready for download.
+                You&rsquo;ll receive an email notification when your GLB file is ready for download.
               </p>
             </div>
           </div>

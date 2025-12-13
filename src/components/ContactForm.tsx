@@ -282,10 +282,9 @@ export default function ContactForm() {
               <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
                 <div className="flex items-center gap-2 text-green-800">
                   <Check className="h-4 w-4" />
-                  <span className="font-medium">Thank you!</span>
                 </div>
                 <p className="text-sm text-green-700 mt-1">
-                  We've received your request and will contact you within 24 hours.
+                  We&rsquo;ve received your request and will contact you within 24 hours.
                 </p>
               </div>
             )}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -122,10 +123,13 @@ export default function MediaCarousel() {
           {/* Main Media Display */}
           <div className="relative h-96 w-full bg-gray-100 rounded-lg overflow-hidden">
             {currentItem.type === 'image' ? (
-              <img
+              <Image
                 src={currentItem.src}
                 alt={currentItem.alt}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority
               />
             ) : (
               <video
@@ -192,16 +196,18 @@ export default function MediaCarousel() {
               <button
                 key={item.id}
                 onClick={() => goToSlide(index)}
-                className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                className={`relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
                   index === currentIndex
                     ? 'border-blue-500 scale-110'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
-                <img
+                <Image
                   src={item.thumbnail || item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="64px"
+                  className="object-cover"
                 />
               </button>
             ))}
