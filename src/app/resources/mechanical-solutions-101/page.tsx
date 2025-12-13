@@ -11,8 +11,20 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Mechanical Solutions 101 | Water Raptor",
   description:
-    "Mechanical harvesting, dredging, and attachment choices for The Water Raptor explained in one guide.",
+    "Complete guide to mechanical harvesting, dredging, and attachment choices for The Water Raptor amphibious machine. Learn about cutters, grapples, conveyors, dredge pumps, and specialized tools for aquatic vegetation control, sediment removal, and lake maintenance operations.",
   keywords: "mechanical harvesting, amphibious attachments, Water Raptor truxor, dredging attachments, aquatic equipment",
+  openGraph: {
+    title: "Mechanical Solutions 101 | Water Raptor",
+    description:
+      "Complete guide to mechanical harvesting, dredging, and attachment choices for The Water Raptor amphibious machine.",
+    url: "https://waterraptor.com/resources/mechanical-solutions-101",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mechanical Solutions 101 | Water Raptor",
+    description: "Complete guide to mechanical harvesting and dredging equipment.",
+  },
 };
 
 export default function MechanicalSolutionsPage() {
@@ -22,8 +34,8 @@ export default function MechanicalSolutionsPage() {
         <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-900">
           Resource
         </Badge>
-        <h1 className="text-4xl font-bold md:text-5xl">Mechanical Solutions 101</h1>
-        <p className="text-slate-300">
+        <h1 className="text-4xl font-bold md:text-5xl text-white">Mechanical Solutions 101</h1>
+        <p className="text-slate-200 max-w-3xl mx-auto">
           Attachment choices, harvest tactics, and dredge sequences all start with the amphibious Water Raptor platform.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
@@ -39,8 +51,8 @@ export default function MechanicalSolutionsPage() {
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold">Choose the right tools</h2>
-            <p className="text-slate-300">
+            <h2 className="text-3xl font-semibold text-white">Choose the right tools</h2>
+            <p className="text-slate-200">
               We swap cutter heads, conveyors, dredge pumps, and grapples in minutes so the same machine
               can harvest, dredge, and stage herbicide work without downtime.
             </p>
@@ -50,7 +62,7 @@ export default function MechanicalSolutionsPage() {
               <li>Grapples and grapnel arms clear debris that would otherwise clog the harvest deck.</li>
             </ul>
           </div>
-          <div className="relative h-96 overflow-hidden rounded-3xl border border-white/10">
+          <div className="relative h-96 overflow-hidden rounded-3xl border border-white/20">
             <Image
               src="/images/image003.jpg"
               alt="Mechanical solutions"
@@ -68,7 +80,7 @@ export default function MechanicalSolutionsPage() {
             "Heavy-duty conveyors load biomass while cutters run",
             "Dredge pumps and grapples restore channels and bottom depth",
           ].map((item) => (
-            <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200">
+            <div key={item} className="rounded-2xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 text-sm text-slate-200 shadow-lg">
               <p>{item}</p>
             </div>
           ))}
@@ -88,8 +100,8 @@ export default function MechanicalSolutionsPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-3xl font-bold">Need help picking attachments?</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-bold text-white">Need help picking attachments?</h2>
+          <p className="text-slate-200">
             Share the aquatic weeds, sediment, or debris you face and we will tune The Water Raptor for the job.
           </p>
         </div>

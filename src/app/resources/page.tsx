@@ -81,8 +81,28 @@ const RESOURCE_INDEX = [
 export const metadata: Metadata = {
   title: "Pond & Lake Management Resources | Water Raptor",
   description:
-    "Comprehensive strategy guides and resource pages about pond and lake management, including harvesting, nutrient control, water quality management, and amphibious operations powered by The Water Raptor.",
+    "Comprehensive strategy guides and resource pages about pond and lake management, including harvesting, nutrient control, water quality management, and amphibious operations powered by The Water Raptor. Expert insights and practical guides for healthy aquatic ecosystems.",
   keywords: "pond and lake management resources, pond management guides, lake management guides, aquatic ecosystem management, pond maintenance resources, lake maintenance guides, Water Raptor resources, aquatic management insights",
+  openGraph: {
+    title: "Pond & Lake Management Resources | Water Raptor",
+    description:
+      "Comprehensive strategy guides and resource pages about pond and lake management, including harvesting, nutrient control, and water quality management.",
+    url: "https://waterraptor.com/resources",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pond and lake management resources",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pond & Lake Management Resources | Water Raptor",
+    description: "Comprehensive strategy guides and resource pages about pond and lake management.",
+  },
 };
 
 export default function ResourcesPage() {
@@ -92,8 +112,8 @@ export default function ResourcesPage() {
         <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-900">
           Water Raptor Resources
         </Badge>
-        <h1 className="text-4xl font-bold md:text-5xl">Guides built around The Water Raptor</h1>
-        <p className="text-slate-300">
+        <h1 className="text-4xl font-bold md:text-5xl text-white">Guides built around The Water Raptor</h1>
+        <p className="text-slate-200 max-w-3xl mx-auto">
           Strategic resource pages that explain how we harvest aquatic weeds, lower nutrients, and
           keep stormwater or recreational ponds healthy by pairing insight with on-water performance.
         </p>
@@ -108,16 +128,16 @@ export default function ResourcesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-10">
-        <h2 className="text-3xl font-semibold mb-6">Featured resource topics</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-white">Featured resource topics</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {RESOURCE_INDEX.map((resource) => (
-            <Card key={resource.title} className="bg-white/5 border-white/10 transition hover:border-emerald-400">
+            <Card key={resource.title} className="bg-slate-900/90 backdrop-blur-sm border-white/20 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg">
               <CardHeader className="flex justify-between items-center">
                 <CardTitle className="text-lg font-semibold text-white">{resource.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-slate-300 space-y-4">
+              <CardContent className="text-sm text-slate-200 space-y-4">
                 <p>{resource.summary}</p>
-                <Button variant="ghost" className="text-emerald-300" asChild>
+                <Button variant="ghost" className="text-emerald-300 hover:text-emerald-200 hover:bg-emerald-950/30" asChild>
                   <Link href={resource.href}>Open guide</Link>
                 </Button>
               </CardContent>
@@ -141,8 +161,8 @@ export default function ResourcesPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-3xl font-bold">Need a hand with these guides?</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-bold text-white">Need a hand with these guides?</h2>
+          <p className="text-slate-200">
             Tell us about the pond, lake, or canal you manage and we will tailor a plan that uses
             The Water Raptor for harvesting, dredging, and nutrient work.
           </p>

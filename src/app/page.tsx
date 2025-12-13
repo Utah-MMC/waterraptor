@@ -35,7 +35,7 @@ const BRAND = {
   tagline:
     "Professional pond and lake management services including harvesting, dredging, weed control, and water quality management for healthy aquatic ecosystems.",
   canonical: "https://waterraptor.com",
-  heroImage: "/images/hero-pond-cleanup.jpg",
+  heroImage: "/images/hero-pond-cleanup.jpg?v=1",
 };
 
 const STATS = [
@@ -148,7 +148,7 @@ export default function PondHarvestingPage() {
       name: BRAND.name,
       description: BRAND.tagline,
       url: BRAND.canonical,
-      telephone: "+1-801-555-0123",
+      telephone: "+1-801-590-8516",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Salt Lake City",
@@ -232,9 +232,9 @@ export default function PondHarvestingPage() {
           </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {STATS.map((stat) => (
-            <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div key={stat.label} className="rounded-2xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-5 shadow-lg">
               <p className="text-3xl font-semibold text-emerald-200">{stat.value}</p>
-              <p className="text-sm text-slate-300">{stat.label}</p>
+              <p className="text-sm text-slate-200">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -248,8 +248,8 @@ export default function PondHarvestingPage() {
           <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">
             Amphibious equipment
           </p>
-          <h2 className="text-3xl font-bold">The Water Raptor at work</h2>
-          <p className="mx-auto max-w-3xl text-slate-300">
+          <h2 className="text-3xl font-bold text-white">The Water Raptor at work</h2>
+          <p className="mx-auto max-w-3xl text-slate-200">
             Our amphibious machine and crew focus on harvesting aquatic weeds, invasive plant removal,
             aquatic herbicide staging, dredging, aerial drone support, and pond, lake, river, and canal maintenance
             so every service gets the same priority and clarity.
@@ -299,60 +299,46 @@ export default function PondHarvestingPage() {
         </div>
       </section>
 
-      {/* Wrapped sections with shared background image - starts one section lower */}
-      <div 
-        className="relative bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: `url(/images/graphics/Gemini_Generated_Image_3xgz9p3xgz9p3xgz.png)`,
-        }}
-      >
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/85" />
-        
-        {/* Content wrapper with proper z-index */}
-        <div className="relative z-10">
-          <section className="mx-auto max-w-6xl px-6 py-16">
-            <div className="space-y-4 text-center mb-10">
-              <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Specialized services</p>
-              <h2 className="text-3xl font-bold text-white">Targeted waterbody solutions</h2>
-              <p className="text-slate-200 max-w-3xl mx-auto">
-                Every specialized service pairs the Water Raptor with crews prepared for algae control, nutrient reduction, or habitat work.
-              </p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  title: "Algae & aquatic weed control",
-                  desc: "Cutting, raking, and biomass collection for thick mats.",
-                  href: "/algae-weed-control",
-                },
-                {
-                  title: "Nutrient reduction",
-                  desc: "Dredging and muck removal to lower phosphorus.",
-                  href: "/nutrient-reduction",
-                },
-                {
-                  title: "Habitat & wetland restoration",
-                  desc: "Planting, shoreline work, and invasive intercept.",
-                  href: "/habitat-restoration",
-                },
-              ].map((service) => (
-                <Card key={service.title} className="bg-slate-900/90 backdrop-blur-sm border border-white/20 transition hover:border-emerald-400">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-semibold text-white">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-slate-100 space-y-4">
-                    <p>{service.desc}</p>
-                    <Button variant="ghost" className="text-emerald-300 hover:text-white" asChild>
-                      <Link href={service.href}>Learn more</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="space-y-4 text-center mb-10">
+          <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Specialized services</p>
+          <h2 className="text-3xl font-bold text-white">Targeted waterbody solutions</h2>
+          <p className="text-slate-200 max-w-3xl mx-auto">
+            Every specialized service pairs the Water Raptor with crews prepared for algae control, nutrient reduction, or habitat work.
+          </p>
         </div>
-      </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              title: "Algae & aquatic weed control",
+              desc: "Cutting, raking, and biomass collection for thick mats.",
+              href: "/algae-weed-control",
+            },
+            {
+              title: "Nutrient reduction",
+              desc: "Dredging and muck removal to lower phosphorus.",
+              href: "/nutrient-reduction",
+            },
+            {
+              title: "Habitat & wetland restoration",
+              desc: "Planting, shoreline work, and invasive intercept.",
+              href: "/habitat-restoration",
+            },
+          ].map((service) => (
+            <Card key={service.title} className="bg-slate-900/90 backdrop-blur-sm border border-white/20 transition hover:border-emerald-400">
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-white">{service.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-slate-100 space-y-4">
+                <p>{service.desc}</p>
+                <Button variant="ghost" className="text-emerald-300 hover:text-white" asChild>
+                  <Link href={service.href}>Learn more</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
 
       <CaseStudySection />
 
@@ -360,8 +346,8 @@ export default function PondHarvestingPage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="mb-10 space-y-3 text-center">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Service loop</p>
-            <h2 className="text-3xl font-bold">Harvest, resources, follow-up</h2>
-            <p className="mx-auto max-w-3xl text-slate-300">
+            <h2 className="text-3xl font-bold text-white">Harvest, resources, follow-up</h2>
+            <p className="mx-auto max-w-3xl text-slate-200">
               The Water Raptor teams launch harvests, publish resource stories, and schedule the next maintenance or dredging visit.
             </p>
           </div>
@@ -385,10 +371,10 @@ export default function PondHarvestingPage() {
 
       <section id="tool" className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <Card className="bg-slate-900/70 border-white/10">
+          <Card className="bg-slate-900/85 backdrop-blur-sm border-white/20">
             <CardHeader>
               <CardTitle className="text-3xl font-bold text-white">The Water Raptor</CardTitle>
-              <p className="text-sm text-slate-300">
+              <p className="text-sm text-slate-200">
                 Amphibious tool carrier built for pond harvesting, dredging, and area-wide vegetation control from shoreline to open water.
               </p>
             </CardHeader>
@@ -405,7 +391,7 @@ export default function PondHarvestingPage() {
                     return (
                       <div
                         key={feature.label}
-                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                        className="relative overflow-hidden rounded-2xl border border-white/20 bg-slate-900/90 backdrop-blur-sm"
                       >
                         {featureBg && (
                           <>
@@ -426,7 +412,7 @@ export default function PondHarvestingPage() {
                             {feature.label}
                           </p>
                           <p className="text-lg font-semibold text-white">{feature.value}</p>
-                          <p className="text-xs text-slate-300">{feature.detail}</p>
+                          <p className="text-xs text-slate-200">{feature.detail}</p>
                         </div>
                       </div>
                     );
@@ -448,7 +434,7 @@ export default function PondHarvestingPage() {
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
                   Contact
                 </p>
-                <p className="text-lg font-semibold">(801) 555-0123</p>
+                <p className="text-lg font-semibold">(801) 590-8516</p>
                 <p className="text-xs text-slate-400">Available 7 days for emergency response</p>
               </div>
               <Button className="w-full bg-white text-slate-900" size="lg" asChild>

@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     description:
       "Comprehensive pond and lake management services including harvesting, dredging, weed control, and ongoing maintenance across ponds and reservoirs.",
     url: "https://waterraptor.com/lake-services",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3393.webp",
+        width: 1200,
+        height: 630,
+        alt: "Pond and lake services with Water Raptor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pond & Lake Services | WaterRaptor.com",
+    description: "Comprehensive pond and lake management services powered by The Water Raptor.",
   },
 };
 

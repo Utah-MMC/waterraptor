@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Aquatic Herbicide | WaterRaptor.com",
   description:
-    "Aquatic herbicide staging with The Water Raptor. Secure amphibious access, chemistry delivery, and compliance reports.",
+    "Professional aquatic herbicide staging services using The Water Raptor amphibious machine. Secure amphibious access for chemistry delivery, precise application support, and comprehensive compliance reports. Safe staging with hydraulic lifts and minimal shoreline disturbance for effective weed control.",
   keywords: "aquatic herbicide, herbicide staging, Water Raptor herbicide, chemical application support, pond herbicide",
   openGraph: {
     title: "Aquatic Herbicide | WaterRaptor.com",
     description:
-      "Use The Water Raptor to stage herbicide, move chemistry, and document treated areas without disrupting the shore.",
+      "Professional aquatic herbicide staging services using The Water Raptor. Secure amphibious access, chemistry delivery, and compliance reports.",
     url: "https://waterraptor.com/aquatic-herbicide",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3701.webp",
+        width: 1200,
+        height: 630,
+        alt: "Aquatic herbicide staging services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aquatic Herbicide | WaterRaptor.com",
+    description: "Professional aquatic herbicide staging services using The Water Raptor.",
   },
 };
 

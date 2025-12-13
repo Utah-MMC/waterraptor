@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Lake Weed Control | WaterRaptor.com",
   description:
-    "Lake weed control teams The Water Raptor with herbicide and harvesting to chip away at algae, milfoil, and cattails.",
+    "Professional lake weed control services using The Water Raptor amphibious machine. Expert mechanical harvesting and herbicide staging to remove algae, milfoil, cattails, and invasive aquatic plants. Serving Utah with comprehensive weed management solutions.",
   keywords: "lake weed control, aquatic weed removal, herbicide staging, Water Raptor, invasive plant control",
   openGraph: {
     title: "Lake Weed Control | WaterRaptor.com",
     description:
-      "The amphibious Water Raptor couples with herbicide crews and conveyors to fight aquatic weeds before they spread.",
+      "Professional lake weed control services using The Water Raptor amphibious machine. Expert mechanical harvesting and herbicide staging to remove algae, milfoil, cattails, and invasive aquatic plants.",
     url: "https://waterraptor.com/lake-weed-control",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3542.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lake weed control with Water Raptor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lake Weed Control | WaterRaptor.com",
+    description: "Professional lake weed control services using The Water Raptor amphibious machine.",
   },
 };
 

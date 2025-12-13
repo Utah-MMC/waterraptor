@@ -11,8 +11,20 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Toxic Algae Guide | Water Raptor",
   description:
-    "A practical guide to spotting toxic algae and staging The Water Raptor for safe clearing and follow-up treatments.",
+    "Comprehensive guide to identifying and managing toxic algae blooms in ponds and lakes. Learn how to spot harmful algal blooms (HABs), understand health risks, and stage The Water Raptor for safe clearing and follow-up treatments. Prevention strategies and response protocols.",
   keywords: "toxic algae guide, harmful algal bloom, HAB prevention, Water Raptor algae response, amphibious algae removal",
+  openGraph: {
+    title: "Toxic Algae Guide | Water Raptor",
+    description:
+      "Comprehensive guide to identifying and managing toxic algae blooms in ponds and lakes. Learn prevention strategies and response protocols.",
+    url: "https://waterraptor.com/resources/toxic-algae-guide",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Toxic Algae Guide | Water Raptor",
+    description: "Comprehensive guide to identifying and managing toxic algae blooms.",
+  },
 };
 
 export default function ToxicAlgaeGuidePage() {
@@ -22,8 +34,8 @@ export default function ToxicAlgaeGuidePage() {
         <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-900">
           Resource
         </Badge>
-        <h1 className="text-4xl font-bold md:text-5xl">Toxic Algae Detection & Response</h1>
-        <p className="text-slate-300">
+        <h1 className="text-4xl font-bold md:text-5xl text-white">Toxic Algae Detection & Response</h1>
+        <p className="text-slate-200 max-w-3xl mx-auto">
           Recognize the early warning signs and let The Water Raptor stage crews and conveyors to
           keep toxic blooms from spreading.
         </p>
@@ -40,8 +52,8 @@ export default function ToxicAlgaeGuidePage() {
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold">Spotting HABs before they bloom</h2>
-            <p className="text-slate-300">
+            <h2 className="text-3xl font-semibold text-white">Spotting HABs before they bloom</h2>
+            <p className="text-slate-200">
               Look for scum, bright green islands, or discoloration along the shoreline. Our crews
               sample water and deploy The Water Raptor for immediate biomass removal so toxins stay
               localized.
@@ -52,7 +64,7 @@ export default function ToxicAlgaeGuidePage() {
               <li>Follow up by harvesting affected mats before toxins sink into the sediment.</li>
             </ul>
           </div>
-          <div className="relative h-96 overflow-hidden rounded-3xl border border-white/10">
+          <div className="relative h-96 overflow-hidden rounded-3xl border border-white/20">
             <Image
               src="/images/pondCleanings-768x614.webp"
               alt="Toxic algae response"
@@ -65,13 +77,13 @@ export default function ToxicAlgaeGuidePage() {
 
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-2xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 shadow-lg">
             <h3 className="text-lg font-semibold text-white">Document the bloom</h3>
             <p className="text-sm text-slate-200">
               Keep water samples, photos, and GPS tags so we can calibrate follow-up treatments.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-2xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 shadow-lg">
             <h3 className="text-lg font-semibold text-white">Stage The Water Raptor</h3>
             <p className="text-sm text-slate-200">
               Our conveyor-based tool carrier removes mats and positions crews for herbicide or
@@ -94,8 +106,8 @@ export default function ToxicAlgaeGuidePage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-3xl font-bold">Ready for a safer bloom response?</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-bold text-white">Ready for a safer bloom response?</h2>
+          <p className="text-slate-200">
             Share the lake or pond name, the bloom type, and we will route the job to our amphibious
             crew for sampling, harvest, and treatment.
           </p>

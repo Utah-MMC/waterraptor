@@ -11,8 +11,20 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Invasive Species Response | Water Raptor",
   description:
-    "Target invasive aquatic weeds, carp, and aggressive reeds with our amphibious machine and multi-tool crew.",
+    "Rapid response invasive species control services using The Water Raptor amphibious machine. Target invasive aquatic weeds, carp, phragmites, and aggressive reeds with mechanical harvesting, cutting, and removal. Multi-tool crew deployment for comprehensive invasive species management across ponds and lakes.",
   keywords: "invasive species response, aquatic invasive weeds, amphibious harvesting, Water Raptor invasive control",
+  openGraph: {
+    title: "Invasive Species Response | Water Raptor",
+    description:
+      "Rapid response invasive species control services using The Water Raptor amphibious machine. Target invasive aquatic weeds, carp, phragmites, and aggressive reeds with mechanical harvesting.",
+    url: "https://waterraptor.com/resources/invasive-species-response",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Invasive Species Response | Water Raptor",
+    description: "Rapid response invasive species control services using The Water Raptor.",
+  },
 };
 
 export default function InvasiveSpeciesPage() {
@@ -22,8 +34,8 @@ export default function InvasiveSpeciesPage() {
         <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-900">
           Resource
         </Badge>
-        <h1 className="text-4xl font-bold md:text-5xl">Invasive Species Response</h1>
-        <p className="text-slate-300">
+        <h1 className="text-4xl font-bold md:text-5xl text-white">Invasive Species Response</h1>
+        <p className="text-slate-200 max-w-3xl mx-auto">
           Rapid amphibious response removes invasive weeds, carp, and reeds before they compromise clarity.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
@@ -38,8 +50,8 @@ export default function InvasiveSpeciesPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6">
-          <h2 className="text-3xl font-semibold">Pull, cut, and collect invasives</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-semibold text-white">Pull, cut, and collect invasives</h2>
+          <p className="text-slate-200">
             The Water Raptor reaches cattails, phragmites, milfoil, and carp-infested shallows with conveyors, cutters, and grapples sized for precision.
           </p>
           <ul className="space-y-3 text-sm text-slate-200">
@@ -48,7 +60,7 @@ export default function InvasiveSpeciesPage() {
             <li>Document biomass removed for compliance and reporting.</li>
           </ul>
         </div>
-        <div className="relative h-96 overflow-hidden rounded-3xl border border-white/10">
+        <div className="relative h-96 overflow-hidden rounded-3xl border border-white/20">
           <Image
             src="/images/before-after-4.webp"
             alt="Invasive species harvesting"
@@ -71,8 +83,8 @@ export default function InvasiveSpeciesPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-3xl font-bold">Need an invasive response?</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-bold text-white">Need an invasive response?</h2>
+          <p className="text-slate-200">
             Describe the weeds or carp you face and we will route the amphibious crew with harvest, dredge, and conveyor resources.
           </p>
         </div>

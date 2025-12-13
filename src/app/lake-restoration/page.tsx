@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Lake Restoration | WaterRaptor.com",
   description:
-    "Lake restoration anchored by The Water Raptor. Rebuild clarity, fix shorelines, and balance ecosystems.",
+    "Comprehensive lake restoration services anchored by The Water Raptor amphibious machine. Rebuild water clarity, fix eroded shorelines, restore depth, and balance aquatic ecosystems. Combine amphibious harvesting with shoreline work, sediment removal, and native planting for lasting restoration results.",
   keywords: "lake restoration, shoreline rehab, aquatic restoration, Water Raptor restoration, sediment restoration",
   openGraph: {
     title: "Lake Restoration | WaterRaptor.com",
     description:
-      "We combine amphibious harvesting with shoreline work to restore ponds, lakes, and reservoirs.",
+      "Comprehensive lake restoration services anchored by The Water Raptor. Rebuild clarity, fix shorelines, and balance ecosystems.",
     url: "https://waterraptor.com/lake-restoration",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3495.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lake restoration services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lake Restoration | WaterRaptor.com",
+    description: "Comprehensive lake restoration services anchored by The Water Raptor.",
   },
 };
 

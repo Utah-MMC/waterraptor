@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     description:
       "Schedule comprehensive pond and lake management that pairs The Water Raptor harvests with monitoring, herbicide staging, nutrient response, and ongoing maintenance.",
     url: "https://waterraptor.com/lake-management",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3395.webp",
+        width: 1200,
+        height: 630,
+        alt: "Pond and lake management services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pond & Lake Management Services | WaterRaptor.com",
+    description: "Professional pond and lake management services powered by The Water Raptor.",
   },
 };
 

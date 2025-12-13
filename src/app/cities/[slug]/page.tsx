@@ -79,7 +79,7 @@ export default function CityPage({ params }: CityPageProps) {
                   <Phone className="h-5 w-5 text-blue-600" />
                   <div>
                     <div className="font-semibold">Phone</div>
-                    <div className="text-sm text-muted-foreground">+1-801-555-0123</div>
+                    <div className="text-sm text-muted-foreground">(801) 590-8516</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

@@ -11,6 +11,20 @@ export const metadata: Metadata = {
     description:
       "Comprehensive water quality management for pond and lake management. Harbor The Water Raptor for water quality testing, nutrient response, and harvesting that follows the science.",
     url: "https://waterraptor.com/water-quality-management",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3564.webp",
+        width: 1200,
+        height: 630,
+        alt: "Water quality management for ponds and lakes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Water Quality Management for Ponds & Lakes | WaterRaptor.com",
+    description: "Comprehensive water quality management for pond and lake management.",
   },
 };
 

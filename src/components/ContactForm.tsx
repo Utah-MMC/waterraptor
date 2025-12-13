@@ -162,7 +162,7 @@ export default function ContactForm() {
                 <select
                   id="service"
                   {...register('service')}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus-visible:ring-offset-2"
                 >
                   <option value="">Select a service</option>
                   {SERVICES.map((service) => (
@@ -221,7 +221,7 @@ export default function ContactForm() {
                 <select
                   id="urgency"
                   {...register('urgency')}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus-visible:ring-offset-2"
                 >
                   <option value="low">Low - Planning phase</option>
                   <option value="medium">Medium - Within 3 months</option>
@@ -234,7 +234,7 @@ export default function ContactForm() {
                 <select
                   id="budget"
                   {...register('budget')}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus-visible:ring-offset-2"
                 >
                   <option value="under-5k">Under $5,000</option>
                   <option value="5k-10k">$5,000 - $10,000</option>
@@ -248,7 +248,7 @@ export default function ContactForm() {
                 <select
                   id="timeline"
                   {...register('timeline')}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus-visible:ring-offset-2"
                 >
                   <option value="asap">ASAP</option>
                   <option value="1-month">Within 1 month</option>

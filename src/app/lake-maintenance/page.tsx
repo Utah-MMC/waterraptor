@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Lake Maintenance | WaterRaptor.com",
   description:
-    "Carefully scheduled lake maintenance executed by The Water Raptor. Routine harvesting, debris removal, and shoreline prep.",
+    "Professional carefully scheduled lake maintenance services executed by The Water Raptor amphibious machine. Routine harvesting, debris removal, shoreline preparation, and seasonal care to keep lakes healthy. Weekly and monthly maintenance programs to prevent algae, mats, and debris from returning.",
   keywords: "lake maintenance, pond upkeep, aquatic weed removal, Water Raptor maintenance, Utah lake services",
   openGraph: {
     title: "Lake Maintenance | WaterRaptor.com",
     description:
-      "The Water Raptor crew delivers weekly and monthly maintenance to keep algae, mats, and debris from returning.",
+      "Professional carefully scheduled lake maintenance services executed by The Water Raptor. Routine harvesting, debris removal, and shoreline prep.",
     url: "https://waterraptor.com/lake-maintenance",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3421.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lake maintenance services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lake Maintenance | WaterRaptor.com",
+    description: "Professional carefully scheduled lake maintenance services executed by The Water Raptor.",
   },
 };
 

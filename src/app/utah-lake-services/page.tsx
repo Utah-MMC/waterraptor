@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Utah Lake Services | WaterRaptor.com",
   description:
-    "Utah-focused lake services using The Water Raptor to harvest aquatic weeds, dredge, and manage reservoirs.",
+    "Professional Utah lake services using The Water Raptor amphibious machine. Expert aquatic weed harvesting, dredging, and reservoir management across the Wasatch Front. Rapid response for seasonal blooms and community events. Complete service loop from harvest to maintenance.",
   keywords: "Utah lake services, pond management Utah, amphibious harvesting Utah, Water Raptor Utah, lake cleanup",
   openGraph: {
     title: "Utah Lake Services | WaterRaptor.com",
     description:
-      "Regional Utah lake services that deploy The Water Raptor for vegetation control, dredging, and water clarity.",
+      "Professional Utah lake services using The Water Raptor amphibious machine. Expert aquatic weed harvesting, dredging, and reservoir management across the Wasatch Front.",
     url: "https://waterraptor.com/utah-lake-services",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3560.webp",
+        width: 1200,
+        height: 630,
+        alt: "Utah lake services with Water Raptor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Utah Lake Services | WaterRaptor.com",
+    description: "Professional Utah lake services using The Water Raptor amphibious machine.",
   },
 };
 

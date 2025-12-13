@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Aerial Herbicide Drone | WaterRaptor.com",
   description:
-    "Aerial herbicide drone missions backed by The Water Raptor amphibious staging center.",
+    "Professional aerial herbicide drone missions backed by The Water Raptor amphibious staging center. Launch precision herbicide applications from the mobile amphibious platform to target shoreline and littoral zones. Advanced drone technology combined with amphibious access for comprehensive weed control.",
   keywords: "aerial herbicide, herbicide drone, amphibious drone staging, Water Raptor herbicide drone, pond drone support",
   openGraph: {
     title: "Aerial Herbicide Drone | WaterRaptor.com",
     description:
-      "Launch drone herbicide missions from The Water Raptor so shoreline and littoral zones stay targeted.",
+      "Professional aerial herbicide drone missions backed by The Water Raptor amphibious staging center. Launch precision herbicide applications from the mobile platform.",
     url: "https://waterraptor.com/aerial-herbicide-drone",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3714.webp",
+        width: 1200,
+        height: 630,
+        alt: "Aerial herbicide drone services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aerial Herbicide Drone | WaterRaptor.com",
+    description: "Professional aerial herbicide drone missions backed by The Water Raptor.",
   },
 };
 

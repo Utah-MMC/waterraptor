@@ -1,11 +1,7 @@
-# Exclude large image directories from serverless functions
-public/images/New Images/**
-public/images/graphics/**
-public/images/logo/**
-*.jpg
-*.jpeg
-*.png
-*.webp
-*.gif
-*.bmp
-*.avif
+# Files/folders to exclude from Vercel CLI uploads.
+# Keep `public/` assets included so images/icons don't 404 in production.
+node_modules/
+.next/
+.git/
+docs/
+temp_frames/

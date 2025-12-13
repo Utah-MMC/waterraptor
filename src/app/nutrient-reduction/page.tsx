@@ -12,8 +12,20 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Nutrient Reduction & Pond Chemistry | Water Raptor",
   description:
-    "Nutrient reduction services built around The Water Raptor's dredging and biomass removal to improve clarity and limit algae blooms.",
+    "Comprehensive nutrient reduction services built around The Water Raptor's dredging and biomass removal capabilities. Improve water clarity and limit algae blooms by removing phosphorus-loaded sediment and excess nutrients. Professional pond chemistry management for healthy aquatic ecosystems.",
   keywords: "nutrient reduction, phosphorus removal, algae prevention, pond chemistry, Water Raptor nutrient service",
+  openGraph: {
+    title: "Nutrient Reduction & Pond Chemistry | Water Raptor",
+    description:
+      "Comprehensive nutrient reduction services using The Water Raptor's dredging and biomass removal to improve clarity and limit algae blooms.",
+    url: "https://waterraptor.com/nutrient-reduction",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nutrient Reduction & Pond Chemistry | Water Raptor",
+    description: "Comprehensive nutrient reduction services for healthy ponds and lakes.",
+  },
 };
 
 const BENEFITS = [

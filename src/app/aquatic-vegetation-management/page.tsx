@@ -8,13 +8,27 @@ import dynamic from 'next/dynamic';
 const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
 
 export const metadata: Metadata = {
-  title: 'Aquatic Vegetation Management | Professional Plant Control | WaterRaptor.com',
-  description: 'Expert aquatic vegetation management services for lakes and ponds. Strategic control of aquatic plants to maintain ecosystem balance and water quality.',
+  title: 'Aquatic Vegetation Management | WaterRaptor.com',
+  description: 'Expert aquatic vegetation management services for lakes and ponds using The Water Raptor. Strategic control of aquatic plants including algae, milfoil, cattails, and invasive species to maintain ecosystem balance and water quality. Comprehensive harvesting and herbicide programs.',
   keywords: 'aquatic vegetation management, aquatic plant control, lake vegetation management, pond plant management, invasive plant control, Utah vegetation management',
   openGraph: {
     title: 'Aquatic Vegetation Management | WaterRaptor.com',
-    description: 'Professional aquatic vegetation management for healthy water bodies.',
+    description: 'Expert aquatic vegetation management services for lakes and ponds using The Water Raptor. Strategic control of aquatic plants to maintain ecosystem balance.',
     url: 'https://waterraptor.com/aquatic-vegetation-management',
+    type: 'website',
+    images: [
+      {
+        url: 'https://waterraptor.com/images/image004.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Aquatic vegetation management services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aquatic Vegetation Management | WaterRaptor.com',
+    description: 'Expert aquatic vegetation management services for lakes and ponds.',
   },
 };
 

@@ -19,13 +19,13 @@ export function PortfolioGrid({ title, description, images }: PortfolioGridProps
       <div className="space-y-2 text-center mb-8">
         <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Field gallery</p>
         <h2 className="text-3xl font-bold text-white">{title}</h2>
-        <p className="text-sm text-slate-300">{description}</p>
+        <p className="text-sm text-slate-200">{description}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {images.map((image) => (
           <div
             key={image.src}
-            className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 shadow-xl"
+            className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/20 bg-slate-900/70 shadow-xl"
           >
             <Image
               src={image.src}

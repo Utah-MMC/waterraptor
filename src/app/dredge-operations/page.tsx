@@ -11,6 +11,20 @@ export const metadata: Metadata = {
     description:
       "Professional dredging services for pond and lake management. Thick muck, silt, and nutrient layers get removed with amphibious dredge pumps and conveyors.",
     url: "https://waterraptor.com/dredge-operations",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3709.webp",
+        width: 1200,
+        height: 630,
+        alt: "Dredge operations for ponds and lakes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pond & Lake Dredging Services | WaterRaptor.com",
+    description: "Professional dredge operations for comprehensive pond and lake management.",
   },
 };
 

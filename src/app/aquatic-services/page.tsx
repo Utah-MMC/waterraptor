@@ -8,13 +8,27 @@ import dynamic from 'next/dynamic';
 const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
 
 export const metadata: Metadata = {
-  title: 'Aquatic Services | Professional Water Body Services | WaterRaptor.com',
-  description: 'Comprehensive aquatic services for ponds, lakes, and water features. Expert solutions for all types of water bodies and aquatic ecosystems.',
+  title: 'Aquatic Services | WaterRaptor.com',
+  description: 'Comprehensive aquatic services for ponds, lakes, and water features using The Water Raptor. Expert solutions including harvesting, dredging, weed control, water quality management, and maintenance for all types of water bodies and aquatic ecosystems. Serving Utah with professional aquatic management.',
   keywords: 'aquatic services, aquatic management, water body services, pond services, lake services, aquatic ecosystem services, Utah aquatic services',
   openGraph: {
     title: 'Aquatic Services | WaterRaptor.com',
-    description: 'Comprehensive aquatic services for all types of water bodies.',
+    description: 'Comprehensive aquatic services for ponds, lakes, and water features using The Water Raptor. Expert solutions for all types of water bodies.',
     url: 'https://waterraptor.com/aquatic-services',
+    type: 'website',
+    images: [
+      {
+        url: 'https://waterraptor.com/images/image004.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Aquatic services for ponds and lakes',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aquatic Services | WaterRaptor.com',
+    description: 'Comprehensive aquatic services for ponds, lakes, and water features.',
   },
 };
 

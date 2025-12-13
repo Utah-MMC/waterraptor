@@ -12,8 +12,28 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Habitat Restoration & Wetland Planting | Water Raptor",
   description:
-    "Wetland planting, habitat installation, shoreline restoration, and invasive species control using amphibious The Water Raptor tool carrier.",
+    "Professional habitat restoration and wetland planting services using the amphibious Water Raptor tool carrier. Native planting, habitat installation, shoreline restoration, and invasive species control for healthy aquatic ecosystems. Low-impact staging for wetland buffers and aquatic fringes.",
   keywords: "wetland restoration, habitat planting, shoreline restoration, amphibious habitat work, Water Raptor wetlands",
+  openGraph: {
+    title: "Habitat Restoration & Wetland Planting | Water Raptor",
+    description:
+      "Professional habitat restoration and wetland planting services using the amphibious Water Raptor. Native planting, habitat installation, and shoreline restoration.",
+    url: "https://waterraptor.com/habitat-restoration",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Habitat restoration and wetland planting services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Habitat Restoration & Wetland Planting | Water Raptor",
+    description: "Professional habitat restoration and wetland planting services.",
+  },
 };
 
 const SERVICES = [

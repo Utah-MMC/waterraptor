@@ -5,12 +5,12 @@ import { CASE_STUDIES } from "@/data/caseStudies";
 
 export default function CaseStudySection() {
   return (
-    <section className="bg-slate-900/80 py-16">
+    <section className="bg-slate-900/85 backdrop-blur-sm py-16">
       <div className="container mx-auto space-y-6 px-6">
         <div className="space-y-2 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Field proof</p>
-          <h2 className="text-3xl font-bold">Regional case studies with The Water Raptor</h2>
-          <p className="text-sm text-slate-300 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-white">Regional case studies with The Water Raptor</h2>
+          <p className="text-sm text-slate-200 max-w-3xl mx-auto">
             Every deployment includes data, imagery, and a clear plan for the next maintenance cycle.
           </p>
         </div>
@@ -18,7 +18,7 @@ export default function CaseStudySection() {
           {CASE_STUDIES.map((study) => (
             <article
               key={study.title}
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70 shadow-xl"
+              className="relative overflow-hidden rounded-3xl border border-white/20 bg-slate-900/90 backdrop-blur-sm shadow-xl"
             >
               <div className="relative h-48">
                 <Image
@@ -32,7 +32,7 @@ export default function CaseStudySection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               </div>
-              <div className="space-y-2 p-5 text-sm text-slate-300">
+              <div className="space-y-2 p-5 text-sm text-slate-200">
                 <div className="text-emerald-200 text-xs uppercase tracking-[0.3em]">
                   {study.focus}
                 </div>

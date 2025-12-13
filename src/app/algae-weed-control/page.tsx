@@ -12,8 +12,28 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Algae & Aquatic Weed Control | Water Raptor",
   description:
-    "Professional algae and aquatic weed control powered by the amphibious Water Raptor. Cutting, raking, dredging, and herbicide staging for ponds, lakes, and canals.",
+    "Professional algae and aquatic weed control services powered by the amphibious Water Raptor. Comprehensive solutions including mechanical cutting, raking, dredging, and herbicide staging for ponds, lakes, and canals. Suppress algae blooms and remove invasive vegetation to maintain clear, healthy water bodies.",
   keywords: "algae control, aquatic weed removal, amphibious vegetation control, Water Raptor, pond algae treatment",
+  openGraph: {
+    title: "Algae & Aquatic Weed Control | Water Raptor",
+    description:
+      "Professional algae and aquatic weed control services powered by the amphibious Water Raptor. Cutting, raking, dredging, and herbicide staging.",
+    url: "https://waterraptor.com/algae-weed-control",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Algae and aquatic weed control services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Algae & Aquatic Weed Control | Water Raptor",
+    description: "Professional algae and aquatic weed control services powered by the Water Raptor.",
+  },
 };
 
 const FEATURES = [

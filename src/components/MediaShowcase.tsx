@@ -64,8 +64,8 @@ export function MediaShowcase({
     <section className="space-y-6">
       <div className="space-y-2 text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Media Showcase</p>
-        <h2 className="text-3xl font-bold text-slate-50">{title}</h2>
-        <p className="text-sm text-slate-300 max-w-3xl mx-auto">{description}</p>
+        <h2 className="text-3xl font-bold text-white">{title}</h2>
+        <p className="text-sm text-slate-200 max-w-3xl mx-auto">{description}</p>
         {ctaLabel && ctaHref && (
           <div className="flex justify-center">
             <Button asChild variant="ghost">
@@ -81,7 +81,7 @@ export function MediaShowcase({
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {images.map((image, index) => (
-          <div key={image.name} className="relative aspect-square overflow-hidden rounded-2xl border border-white/5">
+          <div key={image.name} className="relative aspect-square overflow-hidden rounded-2xl border border-white/20">
             <Image
               src={image.url}
               alt={image.alt}

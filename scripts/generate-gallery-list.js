@@ -4,6 +4,7 @@ const path = require('path');
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp', '.avif']);
 const publicImagesDir = path.join(process.cwd(), 'public', 'images');
 const outputFile = path.join(process.cwd(), 'public', 'gallery-list.json');
+const ASSET_VERSION = process.env.ASSET_VERSION || String(Date.now());
 
 const sanitizeAlt = (name) => {
   return name
@@ -28,7 +29,7 @@ try {
     .filter((file) => IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()))
     .map((file) => ({
       name: file,
-      url: `/images/${encodeURIComponent(file)}`,
+      url: `/images/${encodeURIComponent(file)}?v=${encodeURIComponent(ASSET_VERSION)}`,
       alt: sanitizeAlt(file),
     }));
 
@@ -45,4 +46,3 @@ try {
     process.exit(1);
   }
 }
-

@@ -11,8 +11,28 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Sediment Removal Plans | Water Raptor",
   description:
-    "Sediment removal planning with The Water Raptor dredging tools, conveyors, and haul-out strategy.",
+    "Comprehensive sediment removal planning services using The Water Raptor dredging tools, conveyors, and haul-out strategy. Build detailed plans to eliminate nutrient-rich muck, restore lake depth, and coordinate dredge operations with bathymetric data and disposal routes.",
   keywords: "sediment removal plan, dredging plan, muck removal, Water Raptor dredging, lake depth restoration",
+  openGraph: {
+    title: "Sediment Removal Plans | Water Raptor",
+    description:
+      "Comprehensive sediment removal planning services using The Water Raptor dredging tools, conveyors, and haul-out strategy.",
+    url: "https://waterraptor.com/resources/sediment-removal-plans",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image001.png",
+        width: 1200,
+        height: 630,
+        alt: "Sediment removal planning for lakes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sediment Removal Plans | Water Raptor",
+    description: "Comprehensive sediment removal planning services using The Water Raptor.",
+  },
 };
 
 export default function SedimentRemovalPage() {
@@ -22,9 +42,9 @@ export default function SedimentRemovalPage() {
         <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-900">
           Resource
         </Badge>
-        <h1 className="text-4xl font-bold md:text-5xl">Sediment Removal Plans</h1>
-        <p className="text-slate-300">
-          Build a plan that uses The Water Raptor’s dredge pumps, conveyors, and haul routes to eliminate nutrient-rich muck.
+        <h1 className="text-4xl font-bold md:text-5xl text-white">Sediment Removal Plans</h1>
+        <p className="text-slate-200 max-w-3xl mx-auto">
+          Build a plan that uses The Water Raptor&apos;s dredge pumps, conveyors, and haul routes to eliminate nutrient-rich muck.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Button asChild className="bg-emerald-500 text-slate-900">
@@ -38,8 +58,8 @@ export default function SedimentRemovalPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6">
-          <h2 className="text-3xl font-semibold">Plan every muck removal pass</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-semibold text-white">Plan every muck removal pass</h2>
+          <p className="text-slate-200">
             Document depth, muck thickness, and disposal routes before The Water Raptor arrives so the dredge arm and conveyor can work continuously.
           </p>
           <ul className="space-y-3 text-sm text-slate-200">
@@ -48,7 +68,7 @@ export default function SedimentRemovalPage() {
             <li>Coordinate herbicide staging so dredging clears treated layers safely.</li>
           </ul>
         </div>
-        <div className="relative h-96 overflow-hidden rounded-3xl border border-white/10">
+        <div className="relative h-96 overflow-hidden rounded-3xl border border-white/20">
           <Image
             src="/images/image001.png"
             alt="Sediment removal"
@@ -71,8 +91,8 @@ export default function SedimentRemovalPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-3xl font-bold">Need a dredge plan?</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-bold text-white">Need a dredge plan?</h2>
+          <p className="text-slate-200">
             Share depths, sediment types, and final use plans so we can route the Water Raptor and crew with precise lift paths and disposal staging.
           </p>
         </div>

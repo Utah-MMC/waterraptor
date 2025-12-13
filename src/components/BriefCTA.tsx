@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 export default function BriefCTA() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-12">
-      <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/60 to-slate-950 p-8 text-center shadow-2xl">
+      <div className="rounded-3xl border border-white/20 bg-gradient-to-br from-slate-900/90 to-slate-950/90 backdrop-blur-sm p-8 text-center shadow-2xl">
         <p className="text-xs uppercase tracking-[0.4em] text-emerald-300">Download</p>
         <h2 className="mt-2 text-3xl font-bold text-white">Water Raptor services brief</h2>
-        <p className="mt-4 text-sm text-slate-300">
+        <p className="mt-4 text-sm text-slate-200">
           Request the one-sheet packed with capabilities, regional availability, and how we pair harvesting, herbicide, and dredging.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">

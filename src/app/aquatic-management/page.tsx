@@ -8,13 +8,27 @@ import dynamic from 'next/dynamic';
 const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
 
 export const metadata: Metadata = {
-  title: 'Pond & Lake Management Services | Comprehensive Aquatic Management | WaterRaptor.com',
-  description: 'Expert pond and lake management services for healthy aquatic ecosystems. Comprehensive solutions including harvesting, dredging, vegetation control, water quality management, and ongoing maintenance.',
+  title: 'Pond & Lake Management Services | WaterRaptor.com',
+  description: 'Expert pond and lake management services for healthy aquatic ecosystems using The Water Raptor. Comprehensive solutions including harvesting, dredging, vegetation control, water quality management, and ongoing maintenance. Professional amphibious equipment for sustainable water body management.',
   keywords: 'pond and lake management, aquatic management, pond management services, lake management services, aquatic ecosystem management, water body management, pond maintenance, lake maintenance, Utah pond and lake management',
   openGraph: {
-    title: 'Aquatic Management Services | WaterRaptor.com',
-    description: 'Comprehensive aquatic management for all types of water bodies.',
+    title: 'Pond & Lake Management Services | WaterRaptor.com',
+    description: 'Expert pond and lake management services for healthy aquatic ecosystems. Comprehensive solutions including harvesting, dredging, and vegetation control.',
     url: 'https://waterraptor.com/aquatic-management',
+    type: 'website',
+    images: [
+      {
+        url: 'https://waterraptor.com/images/image004.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Pond and lake management services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pond & Lake Management Services | WaterRaptor.com',
+    description: 'Expert pond and lake management services for healthy aquatic ecosystems.',
   },
 };
 

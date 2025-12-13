@@ -6,9 +6,29 @@ import { MediaShowcase } from '@/components/MediaShowcase';
 export const metadata: Metadata = {
   title: 'Pond & Lake Management Resources | WaterRaptor.com',
   description:
-    'Articles, guides, and case studies about comprehensive pond and lake management, including harvesting, dredging, water quality management, and aquatic ecosystem maintenance with The Water Raptor.',
+    'Articles, guides, and case studies about comprehensive pond and lake management, including harvesting, dredging, water quality management, and aquatic ecosystem maintenance with The Water Raptor. Expert insights and practical solutions for healthy water bodies.',
   keywords:
     'pond and lake management resources, pond management guides, lake management articles, aquatic ecosystem management, pond maintenance guides, lake maintenance resources, amphibious equipment articles, aquatic weed control, Water Raptor blog',
+  openGraph: {
+    title: 'Pond & Lake Management Resources | WaterRaptor.com',
+    description:
+      'Articles, guides, and case studies about comprehensive pond and lake management with The Water Raptor. Expert insights and practical solutions.',
+    url: 'https://waterraptor.com/blog',
+    type: 'website',
+    images: [
+      {
+        url: 'https://waterraptor.com/images/image004.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Pond and lake management resources',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pond & Lake Management Resources | WaterRaptor.com',
+    description: 'Articles, guides, and case studies about comprehensive pond and lake management.',
+  },
 };
 
 const STORIES = [
@@ -83,7 +103,7 @@ export default function BlogPage() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-xs uppercase tracking-[0.4em] text-emerald-300">Resources</p>
         <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">Guides & case studies</h1>
-        <p className="text-lg text-slate-300 max-w-3xl">
+        <p className="text-lg text-slate-200 max-w-3xl">
           Learn how The Water Raptor harvests aquatic weeds, stages herbicide work, and restores depth across lakes,
           ponds, rivers, and canals. We publish tech tips, job narratives, and seasonal strategies so you can plan
           confident projects with amphibious machinery.
@@ -93,12 +113,12 @@ export default function BlogPage() {
             <Link
               key={story.title}
               href={story.href}
-              className="group relative rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-emerald-400"
+              className="group relative rounded-3xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg"
             >
               <div className="space-y-2">
                 <div className="text-sm text-emerald-300 uppercase tracking-[0.3em]">Case Study</div>
-                <h3 className="text-2xl font-semibold">{story.title}</h3>
-                <p className="text-sm text-slate-300">{story.summary}</p>
+                <h3 className="text-2xl font-semibold text-white">{story.title}</h3>
+                <p className="text-sm text-slate-200">{story.summary}</p>
                 <div className="text-xs uppercase tracking-[0.3em] text-slate-400 group-hover:text-emerald-300">
                   Read the story
                 </div>
@@ -109,8 +129,8 @@ export default function BlogPage() {
         <section className="mt-12 space-y-6">
           <div className="text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Resource Guides</p>
-            <h2 className="text-3xl font-bold">Technical pages powered by The Water Raptor</h2>
-            <p className="text-slate-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-white">Technical pages powered by The Water Raptor</h2>
+            <p className="text-slate-200 max-w-3xl mx-auto">
               Explore how we pair aquatic herbicide, mechanical harvesting, and sonar treatments with amphibious operations.
             </p>
           </div>
@@ -119,11 +139,11 @@ export default function BlogPage() {
               <Link
                 key={guide.title}
                 href={guide.href}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-emerald-400"
+                className="rounded-3xl border border-white/20 bg-slate-900/90 backdrop-blur-sm p-6 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg"
               >
                 <p className="text-xs uppercase tracking-[0.3em] text-emerald-300">Guide</p>
-                <h3 className="mt-2 text-2xl font-semibold">{guide.title}</h3>
-                <p className="mt-3 text-sm text-slate-300">{guide.summary}</p>
+                <h3 className="mt-2 text-2xl font-semibold text-white">{guide.title}</h3>
+                <p className="mt-3 text-sm text-slate-200">{guide.summary}</p>
                 <div className="mt-6 text-xs uppercase tracking-[0.3em] text-slate-400">
                   Read the guide
                 </div>

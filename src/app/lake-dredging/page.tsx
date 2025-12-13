@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Lake Dredging | WaterRaptor.com",
   description:
-    "Targeted hydraulic dredging using The Water Raptor. Remove sediment, restore depth, and keep water quality clear.",
+    "Professional targeted hydraulic dredging services using The Water Raptor amphibious machine. Remove sediment, restore lake depth, and keep water quality clear. Precision dredging with mapped muck removal, nutrient-rich sediment extraction, and depth restoration for healthy aquatic ecosystems.",
   keywords: "lake dredging, hydraulic dredging, sediment removal, Water Raptor dredge, pond deepening",
   openGraph: {
     title: "Lake Dredging | WaterRaptor.com",
     description:
-      "The Water Raptor deploys dredge pumps and conveyors to excavate muck and restore depth for healthy lakes.",
+      "Professional targeted hydraulic dredging services using The Water Raptor. Remove sediment, restore depth, and maintain water quality.",
     url: "https://waterraptor.com/lake-dredging",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3486.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lake dredging services with Water Raptor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lake Dredging | WaterRaptor.com",
+    description: "Professional targeted hydraulic dredging services using The Water Raptor.",
   },
 };
 

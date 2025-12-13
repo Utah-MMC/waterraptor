@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Truxor T50 | WaterRaptor.com",
   description:
-    "Truxor T50 amphibious platform that becomes The Water Raptor. Learn about attachments and mobility that clear aquatic weeds.",
+    "Learn about the Truxor T50 amphibious platform that powers The Water Raptor. Discover attachments, mobility features, and capabilities that clear aquatic weeds, remove sediment, and maintain healthy water bodies. Tracked amphibious machine with versatile tool options.",
   keywords: "Truxor T50, amphibious harvester, Water Raptor equipment, aquatic weed cutter, pond machine",
   openGraph: {
     title: "Truxor T50 | WaterRaptor.com",
     description:
-      "The Water Raptor is based on the Truxor T50 amphibious machine. Discover the attachments we deploy for harvesting and dredging.",
+      "Learn about the Truxor T50 amphibious platform that powers The Water Raptor. Discover attachments and mobility features for aquatic management.",
     url: "https://waterraptor.com/truxor-t50",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3562.webp",
+        width: 1200,
+        height: 630,
+        alt: "Truxor T50 amphibious platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Truxor T50 | WaterRaptor.com",
+    description: "Learn about the Truxor T50 amphibious platform that powers The Water Raptor.",
   },
 };
 

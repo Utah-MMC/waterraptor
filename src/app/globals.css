@@ -25,29 +25,8 @@
     --ring: 201 96% 32%;
     --radius: 0.75rem;
 
-    --claw-opacity: 0.55;
-    --claw-ink: 222 84% 6%;
-    --claw-edge: 210 40% 98%;
-    --claw-accent: 201 96% 32%;
-    --claw-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='160' viewBox='0 0 240 160'%3E%3Cg fill='none' stroke='white' stroke-opacity='0.18' stroke-width='2'%3E%3Cpath d='M-30 38 L270 10'/%3E%3Cpath d='M-30 74 L270 46'/%3E%3Cpath d='M-30 110 L270 82'/%3E%3Cpath d='M-30 146 L270 118'/%3E%3C/g%3E%3Cg fill='none' stroke='white' stroke-opacity='0.10' stroke-width='1'%3E%3Cpath d='M10 150 L60 0'/%3E%3Cpath d='M80 160 L120 0'/%3E%3Cpath d='M150 160 L190 0'/%3E%3Cpath d='M220 160 L250 0'/%3E%3C/g%3E%3C/svg%3E");
-
     --bg-main: #0b0d10;
     --bg-hi: #141a24;
-
-    --scar-dark: rgba(0, 0, 0, 0.75);
-    --scar-mid: rgba(20, 25, 34, 0.85);
-    --scar-edge: rgba(255, 255, 255, 0.1);
-    --scar-opacity: var(--claw-opacity);
-
-    --scar-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='360' height='240' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
-
-    --mx: 0;
-    --my: 0;
-    --scroll: 0;
-
-    --tear-mask: url("/masks/raptor-tear.svg");
-    --claw-scar: url("/images/graphics/Untitled%20design.svg");
-    --claw-scar-opacity: 0.22;
   }
 
   .dark {
@@ -71,17 +50,32 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.1%;
 
-    --claw-opacity: 0.62;
-    --claw-ink: 222.2 84% 4.9%;
-    --claw-edge: 210 40% 98%;
-    --claw-accent: 217.2 91.2% 59.8%;
-
     --bg-main: #07090c;
     --bg-hi: #111827;
+  }
 
-    --scar-dark: rgba(0, 0, 0, 0.82);
-    --scar-mid: rgba(15, 18, 26, 0.9);
-    --scar-edge: rgba(255, 255, 255, 0.12);
+  /* Form field readability improvements */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    color: hsl(210 40% 98%) !important;
+    background-color: hsl(217.2 32.6% 25%) !important;
+  }
+
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: hsl(215 20.2% 75%) !important;
+    opacity: 1;
+  }
+
+  .dark select {
+    color: hsl(210 40% 98%) !important;
+    background-color: hsl(217.2 32.6% 25%) !important;
+  }
+
+  .dark select option {
+    color: hsl(210 40% 98%) !important;
+    background-color: hsl(217.2 32.6% 25%) !important;
   }
 }
 
@@ -94,12 +88,15 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image: url("/images/graphics/Gemini_Generated_Image_1i74ao1i74ao1i74-topaz-enhance-3.4x-3.png");
+    background-color: var(--bg-main);
+    background-image:
+      radial-gradient(1200px 800px at 15% 10%, rgba(255, 255, 255, 0.06), transparent 60%),
+      radial-gradient(1200px 900px at 85% 25%, rgba(255, 255, 255, 0.04), transparent 60%),
+      url("/images/logo/backgroundlogo.png?v=1");
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center, center, center;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #0b0d10;
+    background-size: cover, cover, clamp(340px, 48vmin, 640px);
   }
 
   html[data-intro='1'] {

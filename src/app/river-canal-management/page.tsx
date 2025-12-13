@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "River & Canal Management | WaterRaptor.com",
   description:
-    "River and canal management with The Water Raptor. Keep flow corridors moving with amphibious debris removal and trimming.",
+    "Professional river and canal management services using The Water Raptor amphibious machine. Keep flow corridors moving with amphibious debris removal, vegetation trimming, and dredging operations. Maintain rivers, canals, and stormwater basins for proper water flow and flood prevention.",
   keywords: "river canal management, debris removal, Water Raptor river work, canal clearing, stormwater pond management",
   openGraph: {
     title: "River & Canal Management | WaterRaptor.com",
     description:
-      "The Water Raptor keeps rivers, canals, and stormwater basins flowing through amphibious clearing and trimming.",
+      "Professional river and canal management services using The Water Raptor. Keep flow corridors moving with amphibious debris removal and trimming.",
     url: "https://waterraptor.com/river-canal-management",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3717.webp",
+        width: 1200,
+        height: 630,
+        alt: "River and canal management services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "River & Canal Management | WaterRaptor.com",
+    description: "Professional river and canal management services using The Water Raptor.",
   },
 };
 

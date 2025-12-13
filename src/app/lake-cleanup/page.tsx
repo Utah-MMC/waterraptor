@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Lake Cleanup | WaterRaptor.com",
   description:
-    "Lake cleanup powered by The Water Raptor. Remove debris, floating mats, and trash with the amphibious tool.",
+    "Professional lake cleanup services powered by The Water Raptor amphibious machine. Remove debris, floating mats, trash, and invasive vegetation from ponds and lakes. No dock required - our tracked equipment accesses any shoreline. Serving Utah with reliable cleanup solutions.",
   keywords: "lake cleanup, debris removal, aquatic trash pickup, pond cleanup, Water Raptor",
   openGraph: {
     title: "Lake Cleanup | WaterRaptor.com",
     description:
-      "Harbor The Water Raptor to clean floating mats, trash, and invasive beds from ponds and lakes.",
+      "Professional lake cleanup services powered by The Water Raptor amphibious machine. Remove debris, floating mats, trash, and invasive vegetation from ponds and lakes.",
     url: "https://waterraptor.com/lake-cleanup",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3489.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lake cleanup with Water Raptor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lake Cleanup | WaterRaptor.com",
+    description: "Professional lake cleanup services powered by The Water Raptor amphibious machine.",
   },
 };
 

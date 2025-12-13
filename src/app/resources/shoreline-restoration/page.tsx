@@ -11,8 +11,20 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), { ssr: fal
 export const metadata: Metadata = {
   title: "Shoreline Restoration | Water Raptor",
   description:
-    "Rebuild shorelines, deploy vegetative buffers, and stabilize banks with amphibious staging from The Water Raptor.",
+    "Professional shoreline restoration services using The Water Raptor amphibious machine. Rebuild eroded shorelines, deploy vegetative buffers, install riprap, and stabilize banks with precision amphibious staging. Protect shorelines from erosion while maintaining water access for recreation and wildlife.",
   keywords: "shoreline restoration, riprap, vegetative buffers, amphibious shoreline work, Water Raptor shore",
+  openGraph: {
+    title: "Shoreline Restoration | Water Raptor",
+    description:
+      "Professional shoreline restoration services using The Water Raptor amphibious machine. Rebuild eroded shorelines, deploy vegetative buffers, and stabilize banks.",
+    url: "https://waterraptor.com/resources/shoreline-restoration",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shoreline Restoration | Water Raptor",
+    description: "Professional shoreline restoration services using The Water Raptor.",
+  },
 };
 
 export default function ShorelineRestorationPage() {
@@ -22,8 +34,8 @@ export default function ShorelineRestorationPage() {
         <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-900">
           Resource
         </Badge>
-        <h1 className="text-4xl font-bold md:text-5xl">Shoreline Restoration</h1>
-        <p className="text-slate-300">
+        <h1 className="text-4xl font-bold md:text-5xl text-white">Shoreline Restoration</h1>
+        <p className="text-slate-200 max-w-3xl mx-auto">
           Use The Water Raptor to rebuild shorelines, plant buffers, and stabilize erosion-prone banks without barges.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
@@ -38,8 +50,8 @@ export default function ShorelineRestorationPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6">
-          <h2 className="text-3xl font-semibold">Buffer, stabilize, and protect</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-semibold text-white">Buffer, stabilize, and protect</h2>
+          <p className="text-slate-200">
             Stage The Water Raptor near the bank, cut invasive reeds, and place rip-rap while crews anchor coir logs and native plants.
           </p>
           <ul className="space-y-3 text-sm text-slate-200">
@@ -48,7 +60,7 @@ export default function ShorelineRestorationPage() {
             <li>Document long-term erosion markers after each deployment.</li>
           </ul>
         </div>
-        <div className="relative h-96 overflow-hidden rounded-3xl border border-white/10">
+        <div className="relative h-96 overflow-hidden rounded-3xl border border-white/20">
           <Image
             src="/images/image004.jpg"
             alt="Shoreline work in progress"
@@ -71,8 +83,8 @@ export default function ShorelineRestorationPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-3xl font-bold">Ready for shoreline stabilization?</h2>
-          <p className="text-slate-300">
+          <h2 className="text-3xl font-bold text-white">Ready for shoreline stabilization?</h2>
+          <p className="text-slate-200">
             Share your erosion challenges and we will stage the amphibious machine to rebuild banks or install buffers.
           </p>
         </div>

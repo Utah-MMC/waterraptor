@@ -22,13 +22,17 @@ export default function Header() {
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-24">
           <Link href="/" className="flex items-center gap-3">
-            <img
-              src="/images/logo/newlogo.svg"
-              alt="Water Raptor logo"
-              className="h-[76px] w-auto md:h-[88px]"
-            />
+              <Image
+                src="/images/logo/newlogo.svg?v=1"
+                alt="Water Raptor logo"
+                width={200}
+                height={88}
+                className="h-[76px] w-auto md:h-[88px]"
+                priority
+                unoptimized
+              />
             <div className="hidden md:block">
-              <p className="text-sm text-slate-300">Pond & Lake Management</p>
+              <p className="text-lg font-medium text-slate-300">Pond & Lake Management</p>
             </div>
           </Link>
 

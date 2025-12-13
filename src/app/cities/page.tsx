@@ -10,9 +10,29 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { MapPin, Users, Search, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Pond Cleanup Services by City | Utah, Idaho, Wyoming, Arizona',
-  description: 'Find professional pond cleanup and lake maintenance services in your city. Serving 50+ cities across Utah, Idaho, Wyoming, and Arizona with specialized amphibious equipment.',
+  title: 'Pond Cleanup Services by City | WaterRaptor.com',
+  description: 'Find professional pond cleanup and lake maintenance services in your city. Serving 50+ cities across Utah, Idaho, Wyoming, and Arizona with specialized amphibious equipment. The Water Raptor provides harvesting, dredging, and weed control services in your local area.',
   keywords: 'pond cleanup by city, lake maintenance services, Utah pond services, Idaho lake cleanup, Wyoming water management, Arizona pond maintenance',
+  openGraph: {
+    title: 'Pond Cleanup Services by City | WaterRaptor.com',
+    description:
+      'Find professional pond cleanup and lake maintenance services in your city. Serving 50+ cities across Utah, Idaho, Wyoming, and Arizona.',
+    url: 'https://waterraptor.com/cities',
+    type: 'website',
+    images: [
+      {
+        url: 'https://waterraptor.com/images/image004.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Pond cleanup services by city',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pond Cleanup Services by City | WaterRaptor.com',
+    description: 'Find professional pond cleanup and lake maintenance services in your city.',
+  },
 };
 
 export default function CitiesPage() {
@@ -69,7 +89,7 @@ export default function CitiesPage() {
               <a href="#contact-form">Get Free Quote</a>
             </Button>
             <Button variant="secondary" size="lg" className="glass-effect hover-lift" asChild>
-              <a href="tel:+18015550123">
+              <a href="tel:+18015908516">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Now
               </a>

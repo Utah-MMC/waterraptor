@@ -14,12 +14,24 @@ export const metadata: Metadata = {
   description: 'Comprehensive pond and lake management services including harvesting, dredging, weed control, water quality management, and aquatic ecosystem maintenance. Professional amphibious equipment for healthy water bodies.',
   keywords: 'pond management, lake management, pond and lake management, aquatic ecosystem management, pond maintenance, lake maintenance, water quality management, aquatic vegetation control, pond dredging, lake restoration, amphibious pond services, Utah pond management',
   authors: [{ name: 'Water Raptor' }],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   openGraph: {
     title: 'Professional Pond & Lake Management Services | Water Raptor',
     description: 'Comprehensive pond and lake management services including harvesting, dredging, weed control, and water quality management for healthy aquatic ecosystems.',
     type: 'website',
     url: 'https://waterraptor.com',
-    images: ['/images/image004.jpg'],
+    images: [
+      {
+        url: 'https://waterraptor.com/images/image004.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Water Raptor Professional Pond & Lake Management Services',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

@@ -4,13 +4,27 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Invasive Aquatic Plants | WaterRaptor.com",
   description:
-    "Target invasive aquatic plants with The Water Raptor. Remove cattails, milfoil, and phragmites with amphibious harvesting.",
+    "Professional invasive aquatic plant control services using The Water Raptor amphibious machine. Remove cattails, milfoil, phragmites, and other invasive species with precision harvesting. Species-focused removal with proper cutter heads and follow-up plans to keep lakes balanced and healthy.",
   keywords: "invasive aquatic plants, phragmites removal, cattail harvesting, amphibious invasive control, Water Raptor",
   openGraph: {
     title: "Invasive Aquatic Plants | WaterRaptor.com",
     description:
-      "We harvest invasive plants using The Water Raptor and document regrowth so your lake stays balanced.",
+      "Professional invasive aquatic plant control services using The Water Raptor. Remove cattails, milfoil, and phragmites with amphibious harvesting.",
     url: "https://waterraptor.com/invasive-aquatic-plants",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3697.webp",
+        width: 1200,
+        height: 630,
+        alt: "Invasive aquatic plant control services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Invasive Aquatic Plants | WaterRaptor.com",
+    description: "Professional invasive aquatic plant control services using The Water Raptor.",
   },
 };
 

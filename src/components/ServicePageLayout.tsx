@@ -58,26 +58,26 @@ export function ServicePageLayout({
 
   return (
     <div className="min-h-screen bg-transparent text-white">
-      <section className="bg-slate-900/70">
+      <section className="bg-slate-900/85 backdrop-blur-sm">
         <div className="container mx-auto grid gap-10 px-6 py-16 md:grid-cols-[1.3fr_1fr]">
           <div className="space-y-6">
             <Badge className="text-xs uppercase tracking-[0.4em] bg-emerald-500 text-slate-950">
               {badge}
             </Badge>
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold md:text-5xl">{title}</h1>
-              <p className="text-lg text-slate-300 max-w-3xl">{summary}</p>
+              <h1 className="text-4xl font-bold md:text-5xl text-white">{title}</h1>
+              <p className="text-lg text-slate-200 max-w-3xl">{summary}</p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
               {highlights.map((highlight) => (
                 <Card
                   key={highlight.title}
-                  className="bg-slate-950/60 border border-white/5 shadow-lg"
+                  className="bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg"
                 >
                   <CardHeader>
-                    <CardTitle className="text-lg font-semibold">{highlight.title}</CardTitle>
+                    <CardTitle className="text-lg font-semibold text-white">{highlight.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="text-sm text-slate-300">{highlight.detail}</CardContent>
+                  <CardContent className="text-sm text-slate-200">{highlight.detail}</CardContent>
                 </Card>
               ))}
             </div>
@@ -94,7 +94,7 @@ export function ServicePageLayout({
             {heroImages.map((hero, index) => (
               <div
                 key={hero.src}
-                className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40"
+                className="relative overflow-hidden rounded-3xl border border-white/20 bg-slate-900/60"
               >
                 <Image
                   src={hero.src}
@@ -119,7 +119,7 @@ export function ServicePageLayout({
         images={galleryPhotos}
       />
 
-      <section className="bg-slate-900/60">
+      <section className="bg-slate-900/85 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-12">
           <MediaShowcase
             offset={mediaOffset}
@@ -135,8 +135,8 @@ export function ServicePageLayout({
       <section id="contact-form" className="mx-auto max-w-5xl px-6 py-16">
         <div className="space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-emerald-300">Schedule a deployment</p>
-          <h2 className="text-3xl font-bold">Talk to The Water Raptor crew</h2>
-          <p className="text-sm text-slate-300">{contactNote}</p>
+          <h2 className="text-3xl font-bold text-white">Talk to The Water Raptor crew</h2>
+          <p className="text-sm text-slate-200">{contactNote}</p>
         </div>
         <div className="mt-10">
           <ContactForm />

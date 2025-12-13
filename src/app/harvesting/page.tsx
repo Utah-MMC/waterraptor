@@ -2,15 +2,29 @@ import { Metadata } from "next";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Aquatic Harvesting Services | Pond & Lake Management | WaterRaptor.com",
+  title: "Aquatic Harvesting Services | WaterRaptor.com",
   description:
-    "Professional aquatic harvesting services as part of comprehensive pond and lake management. The Water Raptor removes aquatic weeds, debris, and invasive mats to maintain healthy water bodies.",
+    "Professional aquatic harvesting services as part of comprehensive pond and lake management. The Water Raptor amphibious machine removes aquatic weeds, debris, and invasive mats to maintain healthy water bodies. Adaptive harvest decks with cutters, rakes, and conveyors for efficient biomass collection.",
   keywords: "aquatic harvesting, pond harvesting, lake harvesting, pond and lake management, aquatic vegetation removal, biomass collection, Water Raptor harvesting, amphibious harvesting services, pond maintenance",
   openGraph: {
     title: "Aquatic Harvesting Services | WaterRaptor.com",
     description:
       "Professional aquatic harvesting services for pond and lake management. The Water Raptor amphibious machine harvests dense aquatic vegetation while conveying biomass to shore.",
     url: "https://waterraptor.com/harvesting",
+    type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/IMG_3694.webp",
+        width: 1200,
+        height: 630,
+        alt: "Aquatic harvesting services with Water Raptor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aquatic Harvesting Services | WaterRaptor.com",
+    description: "Professional aquatic harvesting services for pond and lake management.",
   },
 };
 
