@@ -70,11 +70,17 @@ export default function CityPage({ params }: CityPageProps) {
           <div className="grid gap-6 md:grid-cols-2">
             <ResourcesSection />
 
-            <Card className="hover-lift shadow-glow">
-              <CardHeader>
-                <CardTitle className="gradient-text">Contact Information</CardTitle>
+            <Card className="relative overflow-hidden hover-lift shadow-glow">
+              <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+              </div>
+              <CardHeader className="relative z-10">
+                <div className="flex items-center gap-2">
+                  <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-70" style={{ filter: 'invert(1)' }} />
+                  <CardTitle className="gradient-text">Contact Information</CardTitle>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="relative z-10 space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-blue-600" />
                   <div>

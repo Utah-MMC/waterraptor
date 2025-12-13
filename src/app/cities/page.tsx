@@ -108,32 +108,48 @@ export default function CitiesPage() {
         </div>
         
         <div className="grid gap-6 md:grid-cols-4">
-          <Card className="hover-lift shadow-glow">
-            <CardContent className="p-6 text-center">
+          <Card className="relative overflow-hidden hover-lift shadow-glow">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6 text-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-6 h-6 opacity-70 mx-auto mb-2" style={{ filter: 'invert(1)' }} />
               <div className="text-3xl font-bold text-blue-600 mb-2">{utahCities.length}</div>
               <div className="font-semibold mb-1">Utah Cities</div>
               <div className="text-sm text-muted-foreground">Wasatch Front & Beyond</div>
             </CardContent>
           </Card>
           
-          <Card className="hover-lift shadow-glow">
-            <CardContent className="p-6 text-center">
+          <Card className="relative overflow-hidden hover-lift shadow-glow">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6 text-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-6 h-6 opacity-70 mx-auto mb-2" style={{ filter: 'invert(1)' }} />
               <div className="text-3xl font-bold text-green-600 mb-2">{idahoCities.length}</div>
               <div className="font-semibold mb-1">Idaho Cities</div>
               <div className="text-sm text-muted-foreground">Treasure Valley & More</div>
             </CardContent>
           </Card>
           
-          <Card className="hover-lift shadow-glow">
-            <CardContent className="p-6 text-center">
+          <Card className="relative overflow-hidden hover-lift shadow-glow">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6 text-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-6 h-6 opacity-70 mx-auto mb-2" style={{ filter: 'invert(1)' }} />
               <div className="text-3xl font-bold text-red-600 mb-2">{wyomingCities.length}</div>
               <div className="font-semibold mb-1">Wyoming Cities</div>
               <div className="text-sm text-muted-foreground">Cowboy State Service</div>
             </CardContent>
           </Card>
           
-          <Card className="hover-lift shadow-glow">
-            <CardContent className="p-6 text-center">
+          <Card className="relative overflow-hidden hover-lift shadow-glow">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6 text-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-6 h-6 opacity-70 mx-auto mb-2" style={{ filter: 'invert(1)' }} />
               <div className="text-3xl font-bold text-orange-600 mb-2">{arizonaCities.length}</div>
               <div className="font-semibold mb-1">Arizona Cities</div>
               <div className="text-sm text-muted-foreground">Valley of the Sun</div>
@@ -156,9 +172,15 @@ export default function CitiesPage() {
             <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
               {utahCities.map((city) => (
                 <Link key={city.slug} href={`/cities/${city.slug}`}>
-                  <Card className="hover-lift shadow-glow cursor-pointer">
-                    <CardContent className="p-4">
-                      <div className="font-semibold mb-1">{city.name}</div>
+                  <Card className="relative overflow-hidden hover-lift shadow-glow cursor-pointer">
+                    <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+                      <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+                    </div>
+                    <CardContent className="relative z-10 p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-4 h-4 opacity-70" style={{ filter: 'invert(1)' }} />
+                        <div className="font-semibold">{city.name}</div>
+                      </div>
                       <div className="text-sm text-muted-foreground mb-2">{city.region}</div>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
                         <Users className="h-3 w-3" />
@@ -178,9 +200,15 @@ export default function CitiesPage() {
             <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
               {idahoCities.map((city) => (
                 <Link key={city.slug} href={`/cities/${city.slug}`}>
-                  <Card className="hover-lift shadow-glow cursor-pointer">
-                    <CardContent className="p-4">
-                      <div className="font-semibold mb-1">{city.name}</div>
+                  <Card className="relative overflow-hidden hover-lift shadow-glow cursor-pointer">
+                    <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+                      <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+                    </div>
+                    <CardContent className="relative z-10 p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-4 h-4 opacity-70" style={{ filter: 'invert(1)' }} />
+                        <div className="font-semibold">{city.name}</div>
+                      </div>
                       <div className="text-sm text-muted-foreground mb-2">{city.region}</div>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
                         <Users className="h-3 w-3" />
@@ -200,9 +228,15 @@ export default function CitiesPage() {
             <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
               {wyomingCities.map((city) => (
                 <Link key={city.slug} href={`/cities/${city.slug}`}>
-                  <Card className="hover-lift shadow-glow cursor-pointer">
-                    <CardContent className="p-4">
-                      <div className="font-semibold mb-1">{city.name}</div>
+                  <Card className="relative overflow-hidden hover-lift shadow-glow cursor-pointer">
+                    <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+                      <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+                    </div>
+                    <CardContent className="relative z-10 p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-4 h-4 opacity-70" style={{ filter: 'invert(1)' }} />
+                        <div className="font-semibold">{city.name}</div>
+                      </div>
                       <div className="text-sm text-muted-foreground mb-2">{city.region}</div>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
                         <Users className="h-3 w-3" />
@@ -222,9 +256,15 @@ export default function CitiesPage() {
             <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
               {arizonaCities.map((city) => (
                 <Link key={city.slug} href={`/cities/${city.slug}`}>
-                  <Card className="hover-lift shadow-glow cursor-pointer">
-                    <CardContent className="p-4">
-                      <div className="font-semibold mb-1">{city.name}</div>
+                  <Card className="relative overflow-hidden hover-lift shadow-glow cursor-pointer">
+                    <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+                      <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+                    </div>
+                    <CardContent className="relative z-10 p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-4 h-4 opacity-70" style={{ filter: 'invert(1)' }} />
+                        <div className="font-semibold">{city.name}</div>
+                      </div>
                       <div className="text-sm text-muted-foreground mb-2">{city.region}</div>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
                         <Users className="h-3 w-3" />
@@ -252,10 +292,14 @@ export default function CitiesPage() {
         </div>
         
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <Card className="hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
-            <CardContent className="p-6">
+          <Card className="relative overflow-hidden hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="h-8 w-8 text-blue-600" />
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-70" style={{ filter: 'invert(1)' }} />
                 <h3 className="text-xl font-semibold">Utah</h3>
               </div>
               <p className="text-muted-foreground mb-4">
@@ -265,10 +309,14 @@ export default function CitiesPage() {
             </CardContent>
           </Card>
 
-          <Card className="hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
-            <CardContent className="p-6">
+          <Card className="relative overflow-hidden hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="h-8 w-8 text-green-600" />
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-70" style={{ filter: 'invert(1)' }} />
                 <h3 className="text-xl font-semibold">Idaho</h3>
               </div>
               <p className="text-muted-foreground mb-4">
@@ -278,10 +326,14 @@ export default function CitiesPage() {
             </CardContent>
           </Card>
 
-          <Card className="hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
-            <CardContent className="p-6">
+          <Card className="relative overflow-hidden hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="h-8 w-8 text-red-600" />
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-70" style={{ filter: 'invert(1)' }} />
                 <h3 className="text-xl font-semibold">Wyoming</h3>
               </div>
               <p className="text-muted-foreground mb-4">
@@ -291,10 +343,14 @@ export default function CitiesPage() {
             </CardContent>
           </Card>
 
-          <Card className="hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
-            <CardContent className="p-6">
+          <Card className="relative overflow-hidden hover-lift shadow-glow bg-white/90 backdrop-blur-sm">
+            <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+            </div>
+            <CardContent className="relative z-10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="h-8 w-8 text-orange-600" />
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-70" style={{ filter: 'invert(1)' }} />
                 <h3 className="text-xl font-semibold">Arizona</h3>
               </div>
               <p className="text-muted-foreground mb-4">

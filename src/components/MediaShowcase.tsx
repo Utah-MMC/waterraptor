@@ -92,6 +92,15 @@ export function MediaShowcase({
               quality={index < 2 ? 90 : 75}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            {/* Claw trademark in top right */}
+            <div className="absolute top-3 right-3 z-10">
+              <img
+                src="/images/graphics/clawssss.svg"
+                alt="Water Raptor trademark"
+                className="w-8 h-8 opacity-80"
+                style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+              />
+            </div>
           </div>
         ))}
         {loading &&

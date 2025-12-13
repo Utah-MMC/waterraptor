@@ -331,6 +331,15 @@ export default function Simple3DViewer() {
                   <div className="absolute top-3 left-3 p-2 rounded-lg bg-white/95 backdrop-blur-sm shadow-sm">
                     {attachment.icon}
                   </div>
+                  {/* Claw trademark in top right */}
+                  <div className="absolute top-3 right-3 z-10">
+                    <img
+                      src="/images/graphics/clawssss.svg"
+                      alt="Water Raptor trademark"
+                      className="w-6 h-6 opacity-80"
+                      style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                    />
+                  </div>
                 </div>
 
                 {/* Content Section - Enhanced */}

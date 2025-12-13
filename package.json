@@ -13,7 +13,8 @@
     "deploy": "vercel --prod",
     "generate-brochure": "node scripts/generate-brochure.js",
     "generate-gallery": "node scripts/generate-gallery-list.js",
-    "submit-indexnow": "node scripts/submit-indexnow.js"
+    "submit-indexnow": "node scripts/submit-indexnow.js",
+    "watermark-images": "node scripts/watermark-images.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

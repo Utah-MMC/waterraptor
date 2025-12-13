@@ -26,11 +26,17 @@ export default function ResourcesSection() {
 
   return (
     <>
-      <Card className="hover-lift shadow-glow">
-        <CardHeader>
-          <CardTitle className="gradient-text">Resources</CardTitle>
+      <Card className="relative overflow-hidden hover-lift shadow-glow">
+        <div className="absolute inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center">
+          <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-2/3 h-2/3 object-contain" />
+        </div>
+        <CardHeader className="relative z-10">
+          <div className="flex items-center gap-2">
+            <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-70" style={{ filter: 'invert(1)' }} />
+            <CardTitle className="gradient-text">Resources</CardTitle>
+          </div>
         </CardHeader>
-        <CardContent className="grid gap-4">
+        <CardContent className="relative z-10 grid gap-4">
           <ResourceItem title="Operator handbook" href="#" />
           <ResourceItem title="Hydraulic schematics" href="#" />
           <ResourceItem title="Attachment compatibility chart" href="#" />

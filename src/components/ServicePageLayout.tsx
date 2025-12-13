@@ -72,12 +72,28 @@ export function ServicePageLayout({
               {highlights.map((highlight) => (
                 <Card
                   key={highlight.title}
-                  className="bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg"
+                  className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg"
                 >
-                  <CardHeader>
-                    <CardTitle className="text-lg font-semibold text-white">{highlight.title}</CardTitle>
+                  {/* Claw trademark watermark */}
+                  <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                    <img
+                      src="/images/graphics/clawssss.svg"
+                      alt="Water Raptor trademark"
+                      className="w-3/4 h-3/4 object-contain"
+                    />
+                  </div>
+                  <CardHeader className="relative z-10">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/images/graphics/clawssss.svg"
+                        alt="Water Raptor claw"
+                        className="w-6 h-6 opacity-80"
+                        style={{ filter: 'invert(1)' }}
+                      />
+                      <CardTitle className="text-lg font-semibold text-white">{highlight.title}</CardTitle>
+                    </div>
                   </CardHeader>
-                  <CardContent className="text-sm text-slate-200">{highlight.detail}</CardContent>
+                  <CardContent className="relative z-10 text-sm text-slate-200">{highlight.detail}</CardContent>
                 </Card>
               ))}
             </div>
@@ -107,6 +123,15 @@ export function ServicePageLayout({
                   quality={index === 0 ? 90 : 80}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                {/* Claw trademark in top right */}
+                <div className="absolute top-3 right-3 z-10">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor trademark"
+                    className="w-8 h-8 opacity-80"
+                    style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                  />
+                </div>
               </div>
             ))}
           </div>

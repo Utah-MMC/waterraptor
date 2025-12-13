@@ -89,39 +89,63 @@ export default function AquaticVegetationManagementPage() {
       <section className="container mx-auto px-4 py-16 bg-slate-900/60 border border-white/10">
         <h2 className="text-4xl font-bold text-center mb-12">Our Management Approach</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Target className="h-10 w-10 text-blue-600 mb-4" />
-              <CardTitle>Assessment</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Assessment</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Identifying problem species and determining management priorities.</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Scissors className="h-10 w-10 text-green-600 mb-4" />
-              <CardTitle>Selective Removal</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Selective Removal</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Precise removal of target vegetation using professional equipment.</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Shield className="h-10 w-10 text-purple-600 mb-4" />
-              <CardTitle>Ecosystem Protection</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Ecosystem Protection</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Methods that protect water quality and wildlife during management.</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Leaf className="h-10 w-10 text-teal-600 mb-4" />
-              <CardTitle>Ongoing Monitoring</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Ongoing Monitoring</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Regular monitoring and maintenance to prevent regrowth.</p>
             </CardContent>
           </Card>

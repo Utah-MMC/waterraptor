@@ -278,13 +278,38 @@ export default function PondHarvestingPage() {
                       quality={80}
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent" />
+                    {/* Claw trademark in top right of image */}
+                    <div className="absolute top-3 right-3 z-0">
+                      <img
+                        src="/images/graphics/clawssss.svg"
+                        alt="Water Raptor trademark"
+                        className="w-8 h-8 opacity-80"
+                        style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                      />
+                    </div>
                   </>
                 )}
+                {/* Claw trademark watermark */}
+                <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor trademark"
+                    className="w-3/4 h-3/4 object-contain"
+                  />
+                </div>
                 <div className="relative z-10 space-y-2 p-6">
                   <CardHeader className="space-y-2">
-                    <CardTitle className="text-xl font-semibold text-white">
-                      {operation.title}
-                    </CardTitle>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/images/graphics/clawssss.svg"
+                        alt="Water Raptor claw"
+                        className="w-8 h-8 opacity-80"
+                        style={{ filter: 'invert(1)' }}
+                      />
+                      <CardTitle className="text-xl font-semibold text-white">
+                        {operation.title}
+                      </CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent className="space-y-4 text-sm text-slate-200">
                     <p>{operation.description}</p>
@@ -325,11 +350,27 @@ export default function PondHarvestingPage() {
               href: "/habitat-restoration",
             },
           ].map((service) => (
-            <Card key={service.title} className="bg-slate-900/90 backdrop-blur-sm border border-white/20 transition hover:border-emerald-400">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-white">{service.title}</CardTitle>
+            <Card key={service.title} className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 transition hover:border-emerald-400">
+              {/* Claw trademark watermark */}
+              <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor trademark"
+                  className="w-3/4 h-3/4 object-contain"
+                />
+              </div>
+              <CardHeader className="relative z-10">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor claw"
+                    className="w-8 h-8 opacity-80"
+                    style={{ filter: 'invert(1)' }}
+                  />
+                  <CardTitle className="text-xl font-semibold text-white">{service.title}</CardTitle>
+                </div>
               </CardHeader>
-              <CardContent className="text-sm text-slate-100 space-y-4">
+              <CardContent className="relative z-10 text-sm text-slate-100 space-y-4">
                 <p>{service.desc}</p>
                 <Button variant="ghost" className="text-emerald-300 hover:text-white" asChild>
                   <Link href={service.href}>Learn more</Link>
@@ -353,11 +394,27 @@ export default function PondHarvestingPage() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICE_SEQUENCE.map((step) => (
-              <Card key={step.title} className="border-white/10 bg-slate-900/80">
-                <CardHeader>
-                  <CardTitle className="text-lg font-semibold text-white">{step.title}</CardTitle>
+              <Card key={step.title} className="relative overflow-hidden border-white/10 bg-slate-900/80">
+                {/* Claw trademark watermark */}
+                <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor trademark"
+                    className="w-3/4 h-3/4 object-contain"
+                  />
+                </div>
+                <CardHeader className="relative z-10">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src="/images/graphics/clawssss.svg"
+                      alt="Water Raptor claw"
+                      className="w-6 h-6 opacity-80"
+                      style={{ filter: 'invert(1)' }}
+                    />
+                    <CardTitle className="text-lg font-semibold text-white">{step.title}</CardTitle>
+                  </div>
                 </CardHeader>
-                <CardContent className="space-y-4 text-sm text-slate-200">
+                <CardContent className="relative z-10 space-y-4 text-sm text-slate-200">
                   <p>{step.detail}</p>
                   <Button variant="ghost" className="text-emerald-300 hover:text-white" asChild>
                     <Link href={step.href}>Explore</Link>
@@ -405,6 +462,15 @@ export default function PondHarvestingPage() {
                                quality={80}
                              />
                             <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/30 to-transparent" />
+                            {/* Claw trademark in top right of image */}
+                            <div className="absolute top-3 right-3 z-0">
+                              <img
+                                src="/images/graphics/clawssss.svg"
+                                alt="Water Raptor trademark"
+                                className="w-6 h-6 opacity-80"
+                                style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                              />
+                            </div>
                           </>
                         )}
                         <div className="relative z-10 space-y-2 p-4">
@@ -570,6 +636,15 @@ function ImageGallery() {
               priority={index < 4}
               quality={index < 4 ? 90 : 75}
             />
+            {/* Claw trademark in top right */}
+            <div className="absolute top-3 right-3 z-10">
+              <img
+                src="/images/graphics/clawssss.svg"
+                alt="Water Raptor trademark"
+                className="w-8 h-8 opacity-80"
+                style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+              />
+            </div>
           </div>
         ))}
       </div>

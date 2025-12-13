@@ -74,12 +74,26 @@ export default function HabitatRestorationPage() {
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {SERVICES.map((service) => (
-            <Card key={service.title} className="bg-white/5 border-white/10">
-              <CardHeader className="flex items-center gap-3">
+            <Card key={service.title} className="relative overflow-hidden bg-white/5 border-white/10">
+              {/* Claw trademark watermark */}
+              <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor trademark"
+                  className="w-3/4 h-3/4 object-contain"
+                />
+              </div>
+              <CardHeader className="relative z-10 flex items-center gap-3">
                 <div className="rounded-full bg-white/10 p-2">{service.icon}</div>
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor claw"
+                  className="w-6 h-6 opacity-80"
+                  style={{ filter: 'invert(1)' }}
+                />
                 <CardTitle className="text-lg font-semibold text-white">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-slate-300">{service.detail}</CardContent>
+              <CardContent className="relative z-10 text-sm text-slate-300">{service.detail}</CardContent>
             </Card>
           ))}
         </div>

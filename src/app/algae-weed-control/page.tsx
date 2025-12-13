@@ -59,12 +59,26 @@ export default function AlgaeWeedControlPage() {
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {FEATURES.map((feature) => (
-            <Card key={feature.title} className="bg-white/5 border-white/10 text-left">
-              <CardHeader className="flex items-center gap-3">
+            <Card key={feature.title} className="relative overflow-hidden bg-white/5 border-white/10 text-left">
+              {/* Claw trademark watermark */}
+              <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor trademark"
+                  className="w-3/4 h-3/4 object-contain"
+                />
+              </div>
+              <CardHeader className="relative z-10 flex items-center gap-3">
                 <div className="rounded-full bg-white/10 p-2">{feature.icon}</div>
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor claw"
+                  className="w-6 h-6 opacity-80"
+                  style={{ filter: 'invert(1)' }}
+                />
                 <CardTitle className="text-lg font-semibold text-white">{feature.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-slate-200">
+              <CardContent className="relative z-10 text-sm text-slate-200">
                 {feature.title === "Algae suppression"
                   ? "Targeted cutting plus raking removes algae base and floating biomass for treatment."
                   : feature.title === "Invasive vegetation removal"

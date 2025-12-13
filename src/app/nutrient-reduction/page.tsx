@@ -49,9 +49,25 @@ export default function NutrientReductionPage() {
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           {BENEFITS.map((benefit) => (
-            <Card key={benefit} className="bg-white/5 border-white/10">
-              <CardHeader>
-                <CardTitle className="text-base font-semibold text-white">{benefit}</CardTitle>
+            <Card key={benefit} className="relative overflow-hidden bg-white/5 border-white/10">
+              {/* Claw trademark watermark */}
+              <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor trademark"
+                  className="w-3/4 h-3/4 object-contain"
+                />
+              </div>
+              <CardHeader className="relative z-10">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor claw"
+                    className="w-6 h-6 opacity-80"
+                    style={{ filter: 'invert(1)' }}
+                  />
+                  <CardTitle className="text-base font-semibold text-white">{benefit}</CardTitle>
+                </div>
               </CardHeader>
             </Card>
           ))}

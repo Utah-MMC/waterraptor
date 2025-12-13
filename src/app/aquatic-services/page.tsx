@@ -89,39 +89,63 @@ export default function AquaticServicesPage() {
       <section className="container mx-auto px-4 py-16 bg-slate-900/60 border border-white/10">
         <h2 className="text-4xl font-bold text-center mb-12">Our Aquatic Services</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Droplets className="h-10 w-10 text-blue-600 mb-4" />
-              <CardTitle>Water Management</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Water Management</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Comprehensive water quality and treatment services.</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Leaf className="h-10 w-10 text-green-600 mb-4" />
-              <CardTitle>Vegetation Services</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Vegetation Services</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Aquatic plant control and management solutions.</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Fish className="h-10 w-10 text-purple-600 mb-4" />
-              <CardTitle>Wildlife Support</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Wildlife Support</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Habitat management for fish and aquatic wildlife.</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+              <img src="/images/graphics/clawssss.svg" alt="Water Raptor trademark" className="w-3/4 h-3/4 object-contain" />
+            </div>
+            <CardHeader className="relative z-10">
               <Waves className="h-10 w-10 text-teal-600 mb-4" />
-              <CardTitle>Ecosystem Care</CardTitle>
+              <div className="flex items-center gap-2">
+                <img src="/images/graphics/clawssss.svg" alt="Water Raptor claw" className="w-5 h-5 opacity-80" style={{ filter: 'invert(1)' }} />
+                <CardTitle>Ecosystem Care</CardTitle>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <p>Holistic ecosystem management and restoration.</p>
             </CardContent>
           </Card>

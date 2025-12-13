@@ -131,11 +131,27 @@ export default function ResourcesPage() {
         <h2 className="text-3xl font-semibold mb-6 text-white">Featured resource topics</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {RESOURCE_INDEX.map((resource) => (
-            <Card key={resource.title} className="bg-slate-900/90 backdrop-blur-sm border-white/20 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg">
-              <CardHeader className="flex justify-between items-center">
-                <CardTitle className="text-lg font-semibold text-white">{resource.title}</CardTitle>
+            <Card key={resource.title} className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border-white/20 transition hover:border-emerald-400 hover:bg-slate-900/95 shadow-lg">
+              {/* Claw trademark watermark */}
+              <div className="absolute inset-0 opacity-15 pointer-events-none z-0 flex items-center justify-center">
+                <img
+                  src="/images/graphics/clawssss.svg"
+                  alt="Water Raptor trademark"
+                  className="w-3/4 h-3/4 object-contain"
+                />
+              </div>
+              <CardHeader className="relative z-10 flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/images/graphics/clawssss.svg"
+                    alt="Water Raptor claw"
+                    className="w-6 h-6 opacity-80"
+                    style={{ filter: 'invert(1)' }}
+                  />
+                  <CardTitle className="text-lg font-semibold text-white">{resource.title}</CardTitle>
+                </div>
               </CardHeader>
-              <CardContent className="text-sm text-slate-200 space-y-4">
+              <CardContent className="relative z-10 text-sm text-slate-200 space-y-4">
                 <p>{resource.summary}</p>
                 <Button variant="ghost" className="text-emerald-300 hover:text-emerald-200 hover:bg-emerald-950/30" asChild>
                   <Link href={resource.href}>Open guide</Link>
