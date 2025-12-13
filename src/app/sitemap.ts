@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/cities`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
@@ -113,7 +119,7 @@ const servicePages = [
     priority: 0.9,
   },
   {
-    url: `${baseUrl}/truxor-t50`,
+    url: `${baseUrl}/water-raptor`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.9,

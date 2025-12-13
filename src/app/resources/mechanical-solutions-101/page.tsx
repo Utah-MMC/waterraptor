@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Complete guide to mechanical harvesting, dredging, and attachment choices for The Water Raptor amphibious machine.",
     url: "https://waterraptor.com/resources/mechanical-solutions-101",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mechanical harvesting and dredging equipment guide",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

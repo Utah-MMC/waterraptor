@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Comprehensive aeration and oxygen management programs designed to work with The Water Raptor harvesting schedule.",
     url: "https://waterraptor.com/resources/aeration-programs",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aeration and oxygen programs for lakes and ponds",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

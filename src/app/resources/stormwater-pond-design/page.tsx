@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Expert guidance on stormwater pond design and maintenance using The Water Raptor. Learn how to design ponds that stay clear of weeds and sediment.",
     url: "https://waterraptor.com/resources/stormwater-pond-design",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Stormwater pond design and maintenance guide",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

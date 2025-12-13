@@ -25,7 +25,8 @@ type ServicePageLayoutProps = {
   badge: string;
   title: string;
   summary: string;
-  heroImages: HeroImage[];
+  heroImages?: HeroImage[];
+  heroContent?: React.ReactNode;
   highlights: Highlight[];
   galleryKey: string;
   galleryTitle: string;
@@ -43,6 +44,7 @@ export function ServicePageLayout({
   title,
   summary,
   heroImages,
+  heroContent,
   highlights,
   galleryKey,
   galleryTitle,
@@ -107,33 +109,37 @@ export function ServicePageLayout({
             </div>
           </div>
           <div className="grid gap-4">
-            {heroImages.map((hero, index) => (
-              <div
-                key={hero.src}
-                className="relative overflow-hidden rounded-3xl border border-white/20 bg-slate-900/60"
-              >
-                <Image
-                  src={hero.src}
-                  alt={hero.alt}
-                  width={600}
-                  height={400}
-                  className="h-64 w-full object-cover"
-                  priority={index === 0}
-                  loading={index === 0 ? undefined : "lazy"}
-                  quality={index === 0 ? 90 : 80}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                {/* Claw trademark in top right */}
-                <div className="absolute top-3 right-3 z-10">
-                  <img
-                    src="/images/graphics/clawssss.svg"
-                    alt="Water Raptor trademark"
-                    className="w-8 h-8 opacity-80"
-                    style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+            {heroContent ? (
+              heroContent
+            ) : heroImages ? (
+              heroImages.map((hero, index) => (
+                <div
+                  key={hero.src}
+                  className="relative overflow-hidden rounded-3xl border border-white/20 bg-slate-900/60"
+                >
+                  <Image
+                    src={hero.src}
+                    alt={hero.alt}
+                    width={600}
+                    height={400}
+                    className="h-64 w-full object-cover object-bottom scale-110"
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : "lazy"}
+                    quality={index === 0 ? 90 : 80}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  {/* Claw trademark in top right */}
+                  <div className="absolute top-3 right-3 z-10">
+                    <img
+                      src="/images/graphics/clawssss.svg"
+                      alt="Water Raptor trademark"
+                      className="w-8 h-8 opacity-80"
+                      style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(200deg) brightness(100%) contrast(100%)' }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : null}
           </div>
         </div>
       </section>

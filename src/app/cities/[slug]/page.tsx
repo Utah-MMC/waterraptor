@@ -31,9 +31,31 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     };
   }
 
+  const title = `Pond Cleanup Services in ${city.name}, ${city.state}`;
+  const description = `Professional pond cleanup and lake maintenance services in ${city.name}, ${city.state}. The Water Raptor provides amphibious harvesting, dredging, weed control, and aquatic vegetation management for ponds, lakes, and water features. Expert lake management services with rapid response.`;
+
   return {
-    title: `Pond Cleanup Services in ${city.name}, ${city.state}`,
-    description: `Professional pond cleanup and lake maintenance services in ${city.name}, ${city.state}.`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://waterraptor.com/cities/${city.slug}`,
+      type: 'website',
+      images: [
+        {
+          url: 'https://waterraptor.com/images/image004.jpg',
+          width: 1200,
+          height: 630,
+          alt: `Pond cleanup services in ${city.name}, ${city.state}`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 

@@ -10,7 +10,7 @@ export default function Footer() {
     { href: '/aquatic-herbicide', label: 'Aquatic Herbicide Support' },
     { href: '/dredge-operations', label: 'Dredge Operations' },
     { href: '/river-canal-management', label: 'River & Canal Management' },
-    { href: '/truxor-t50', label: 'Water Raptor Equipment' },
+    { href: '/water-raptor', label: 'Water Raptor Equipment' },
   ];
 
   const quickLinks = [

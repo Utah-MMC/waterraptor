@@ -20,6 +20,14 @@ export const metadata: Metadata = {
       "Comprehensive nutrient reduction services using The Water Raptor's dredging and biomass removal to improve clarity and limit algae blooms.",
     url: "https://waterraptor.com/nutrient-reduction",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nutrient reduction and pond chemistry management services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

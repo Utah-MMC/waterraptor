@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Rapid response invasive species control services using The Water Raptor amphibious machine. Target invasive aquatic weeds, carp, phragmites, and aggressive reeds with mechanical harvesting.",
     url: "https://waterraptor.com/resources/invasive-species-response",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Invasive species response and control services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Professional shoreline restoration services using The Water Raptor amphibious machine. Rebuild eroded shorelines, deploy vegetative buffers, and stabilize banks.",
     url: "https://waterraptor.com/resources/shoreline-restoration",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Shoreline restoration services for lakes and ponds",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

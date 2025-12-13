@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Complete guide to low-phosphorus fish food selection and feeding strategies for pond management. Reduce algae blooms and maintain water quality.",
     url: "https://waterraptor.com/resources/optimal-low-phosphorus-fish-food",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Low-phosphorus fish food guide for pond management",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

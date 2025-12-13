@@ -14,7 +14,7 @@ export default function Header() {
     { href: '/harvesting', label: 'Harvesting Focus' },
     { href: '/resources', label: 'Resources' },
     { href: '/blog', label: 'Insights' },
-    { href: '/truxor-t50', label: 'Water Raptor' },
+    { href: '/water-raptor', label: 'Water Raptor' },
   ];
 
   return (

@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Chemical-free sonic algae control solutions that pair with The Water Raptor for comprehensive lake management.",
     url: "https://waterraptor.com/resources/sonic-algae-control",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sonic algae control solutions for lakes and ponds",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

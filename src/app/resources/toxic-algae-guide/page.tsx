@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Comprehensive guide to identifying and managing toxic algae blooms in ponds and lakes. Learn prevention strategies and response protocols.",
     url: "https://waterraptor.com/resources/toxic-algae-guide",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Toxic algae detection and response guide",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

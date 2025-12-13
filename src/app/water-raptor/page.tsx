@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
+import Truxor3DViewer from "./Truxor3DViewer";
 
 export const metadata: Metadata = {
   title: "Truxor T50 | WaterRaptor.com",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "Truxor T50 | WaterRaptor.com",
     description:
       "Learn about the Truxor T50 amphibious platform that powers The Water Raptor. Discover attachments and mobility features for aquatic management.",
-    url: "https://waterraptor.com/truxor-t50",
+    url: "https://waterraptor.com/water-raptor",
     type: "website",
     images: [
       {
@@ -27,11 +28,6 @@ export const metadata: Metadata = {
     description: "Learn about the Truxor T50 amphibious platform that powers The Water Raptor.",
   },
 };
-
-const heroImages = [
-  { src: "/images/IMG_3562.webp", alt: "Truxor cutting power", label: "Truxor at work" },
-  { src: "/images/IMG_3563.webp", alt: "Close-up of Truxor tracks", label: "Amphibious tracks" },
-];
 
 const highlights = [
   {
@@ -58,7 +54,7 @@ export default function TruxorT50Page() {
       badge="Truxor T50"
       title="The Water Raptor amphibious machine"
       summary="The Water Raptor is a Truxor T50 hull tuned for pond harvesting, dredging, and herbicide staging."
-      heroImages={heroImages}
+      heroContent={<Truxor3DViewer />}
       highlights={highlights}
       galleryKey="truxorT50"
       galleryTitle="Truxor T50 features"
@@ -72,3 +68,4 @@ export default function TruxorT50Page() {
     />
   );
 }
+

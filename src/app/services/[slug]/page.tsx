@@ -93,10 +93,33 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: "Amphibious projects powered by The Water Raptor.",
     };
   }
+  
+  const title = `${profile.title} | Water Raptor`;
+  const description = `${profile.description} Professional amphibious services using The Water Raptor for efficient pond and lake management.`;
+  
   return {
-    title: profile.title,
-    description: profile.description,
+    title,
+    description,
     keywords: profile.keywords,
+    openGraph: {
+      title,
+      description,
+      url: `https://waterraptor.com/services/${params.slug}`,
+      type: "website",
+      images: [
+        {
+          url: "https://waterraptor.com/images/image004.jpg",
+          width: 1200,
+          height: 630,
+          alt: profile.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
@@ -106,11 +129,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     return <div className="min-h-screen text-white">Service not found.</div>;
   }
 
-  const metadata: Metadata = {
-    title: profile.title,
-    description: profile.description,
-    keywords: profile.keywords,
-  };
   return (
     <div className="min-h-screen bg-transparent text-white">
       <section className="mx-auto max-w-6xl px-6 py-16 space-y-6">

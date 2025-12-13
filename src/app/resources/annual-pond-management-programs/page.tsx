@@ -19,6 +19,14 @@ export const metadata: Metadata = {
       "Comprehensive annual pond management programs designed to keep clarity goals on track with scheduled Water Raptor operations.",
     url: "https://waterraptor.com/resources/annual-pond-management-programs",
     type: "website",
+    images: [
+      {
+        url: "https://waterraptor.com/images/image004.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Annual pond management programs guide",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
