@@ -31,15 +31,12 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), {
   ),
 });
 
-import { getValidHeroImage } from "@/lib/hero-images";
-
 const BRAND = {
   name: "The Water Raptor",
   tagline:
     "Professional pond and lake management services including harvesting, dredging, weed control, and water quality management for healthy aquatic ecosystems.",
   canonical: "https://waterraptor.com",
-  // RULE: Only use hero images that feature The Water Raptor machine
-  heroImage: getValidHeroImage("/images/hero-pond-cleanup.jpg"),
+  heroImage: "/images/hero-pond-cleanup.jpg",
 };
 
 const STATS = [

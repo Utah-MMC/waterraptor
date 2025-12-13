@@ -14,14 +14,18 @@ import JsonLd from '@/components/JsonLd';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
 import { getAuthorById } from '@/lib/authors';
 import { getAllBlogSlugs, getBlogPostBySlug } from '@/lib/blog';
-import { getValidHeroImage } from '@/lib/hero-images';
 
 export const dynamic = 'force-static';
 
 function formatDate(value: string) {
   const date = new Date(`${value}T00:00:00Z`);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
 }
 
 export function generateStaticParams() {
@@ -106,8 +110,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post) notFound();
 
   const author = getAuthorById(post.authorId);
-  // RULE: Only use hero images that feature The Water Raptor machine
-  const heroImage = post.heroImage ? getValidHeroImage(post.heroImage) : getValidHeroImage('/images/image004.jpg');
+  const heroImage = post.heroImage ?? '/images/image004.jpg';
 
   return (
     <div className="min-h-screen bg-transparent text-white">
@@ -121,7 +124,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 {post.type ?? 'Article'}
               </Badge>
               {post.topic && (
-                <span className="text-xs uppercase tracking-[0.35em] text-slate-300">{post.topic}</span>
+                <span className="text-xs uppercase tracking-[0.35em] text-slate-300">
+                  {post.topic}
+                </span>
               )}
             </div>
 
@@ -231,23 +236,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </Link>
             </CardContent>
           </Card>
-
-          <Card className="relative overflow-hidden bg-slate-900/90 backdrop-blur-sm border border-white/20 shadow-lg">
-            <CardHeader className="relative z-10">
-              <CardTitle className="text-lg font-semibold text-white">Want a site plan?</CardTitle>
-            </CardHeader>
-            <CardContent className="relative z-10 space-y-3 text-sm text-slate-200">
-              <p>
-                Send photos, shoreline access notes, and your main outcome (clear lanes, remove muck, restore depth, or
-                reduce blooms). We’ll recommend an order of operations and a follow-up cadence.
-              </p>
-              <Button asChild className="bg-emerald-500 text-slate-950 w-full">
-                <Link href="/#contact-form">Request service</Link>
-              </Button>
-            </CardContent>
-          </Card>
         </aside>
       </section>
     </div>
   );
 }
+
