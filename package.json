@@ -7,11 +7,13 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-gallery-list.js",
     "build": "next build",
+    "postbuild": "node scripts/submit-indexnow.js",
     "start": "next start",
     "lint": "next lint",
     "deploy": "vercel --prod",
     "generate-brochure": "node scripts/generate-brochure.js",
-    "generate-gallery": "node scripts/generate-gallery-list.js"
+    "generate-gallery": "node scripts/generate-gallery-list.js",
+    "submit-indexnow": "node scripts/submit-indexnow.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

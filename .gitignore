@@ -109,9 +109,11 @@ build/
 # Internal documentation (not for customers)
 docs/
 
-# Large local media assets (keep repo lean)
-public/images/*
-!public/images/graphics/
-!public/images/graphics/**
-!public/images/logo/
-!public/images/logo/**
+# Generated at build time (scripts/generate-gallery-list.js)
+public/gallery-list.json
+
+# Large local media assets: keep tracked for deployment.
+# Use `.cursorignore` to keep Codex fast instead.
+
+# Exclude very large video files (>100MB) that exceed GitHub's limit
+public/images/IMG_3703.MOV
