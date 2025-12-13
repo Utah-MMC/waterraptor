@@ -1,25 +1,14 @@
-"use server";
-
 import { NextRequest, NextResponse } from "next/server";
+import { GalleryImage } from "@/lib/gallery";
 import fs from "fs";
 import path from "path";
-import { GalleryImage } from "@/lib/gallery";
 
-const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".avif"]);
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 const DEFAULT_LIMIT = 12;
 const CACHE_TTL_MS = 60 * 1000;
-
-const publicImagesDir = path.join(process.cwd(), "public", "images");
-
-const sanitizeAlt = (name: string) =>
-  name
-    .replace(path.extname(name), "")
-    .replace(/[_-]+/g, " ")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-
-let cachedImages: GalleryImage[] = [];
-let cacheTimestamp = 0;
 
 // Fisher-Yates shuffle algorithm for randomizing array
 const shuffleArray = <T>(array: T[]): T[] => {
@@ -31,6 +20,22 @@ const shuffleArray = <T>(array: T[]): T[] => {
   return shuffled;
 };
 
+let cachedImages: GalleryImage[] = [];
+let cacheTimestamp = 0;
+
+const loadGalleryList = (): GalleryImage[] => {
+  try {
+    // Read the pre-generated JSON file instead of scanning directory
+    const galleryListPath = path.join(process.cwd(), "public", "gallery-list.json");
+    const fileContent = fs.readFileSync(galleryListPath, "utf-8");
+    const images: GalleryImage[] = JSON.parse(fileContent);
+    return images;
+  } catch (error) {
+    console.error("Failed to load gallery list", error);
+    return [];
+  }
+};
+
 const refreshCache = () => {
   const now = Date.now();
   if (now - cacheTimestamp < CACHE_TTL_MS && cachedImages.length > 0) {
@@ -38,17 +43,9 @@ const refreshCache = () => {
   }
 
   try {
-    const files = fs.readdirSync(publicImagesDir);
-    const imageFiles = files
-      .filter((file) => IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()))
-      .map((file) => ({
-        name: file,
-        url: `/images/${encodeURIComponent(file)}`,
-        alt: sanitizeAlt(file),
-      }));
-    
+    const images = loadGalleryList();
     // Randomize the order so images appear from different jobs
-    cachedImages = shuffleArray(imageFiles);
+    cachedImages = shuffleArray(images);
     cacheTimestamp = now;
   } catch (error) {
     console.error("Gallery cache refresh failed", error);

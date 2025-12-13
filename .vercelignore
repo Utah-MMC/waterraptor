@@ -1,0 +1,12 @@
+# Exclude large image directories from serverless functions
+public/images/New Images/**
+public/images/graphics/**
+public/images/logo/**
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.bmp
+*.avif
+

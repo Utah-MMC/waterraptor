@@ -4,6 +4,18 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  // Prevent webpack from bundling public folder contents
+  webpack: (config, { isServer, webpack }) => {
+    if (isServer) {
+      // Ignore public folder in serverless functions
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^\.\/public/,
+        })
+      );
+    }
+    return config;
+  },
   images: {
     domains: ['waterraptor.com'],
     formats: ['image/webp', 'image/avif'],
